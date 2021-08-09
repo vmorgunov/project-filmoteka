@@ -1,0 +1,172 @@
+.header {
+  min-height: 230px;
+  max-width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/header-mobile-bg@1x.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/header-mobile-bg@2x.jpg');
+    }
+  }
+  @media screen and(min-width: $tablet) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header-tablet-bg@1x.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+          url('../images/header-tablet-bg@2x.jpg');
+      }
+    }
+  }
+  @media screen and(min-width: $desktop) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header-bg@1x.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+          url('../images/header-bg@2x.jpg');
+      }
+    }
+  }
+}
+.header .container {
+  position: relative;
+  padding-top: 113px;
+  padding-bottom: 97px;
+}
+.header__logo {
+  position: absolute;
+  top: 46px;
+  left: 21px;
+  display: flex;
+  align-items: center;
+  @media screen and(min-width: $tablet) {
+    top: 41px;
+    left: 71px;
+  }
+  &-icon {
+    margin-right: 10px;
+  }
+  &-text {
+    display: none;
+    @media screen and(min-width: $tablet) {
+      display: block;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.16;
+
+      color: $primary-text-color;
+    }
+  }
+}
+.header-nav {
+  position: absolute;
+  top: 58px;
+  right: 20px;
+  @media screen and(min-width: $tablet) {
+    right: 76px;
+  }
+  @media screen and(min-width: $desktop) {
+    right: 71px;
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &__item {
+    &:last-child {
+      margin-left: 39px;
+    }
+  }
+  &__link {
+    padding: 3px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+    text-transform: uppercase;
+    color: $primary-text-color;
+    position: relative;
+    &:hover::after,
+    &:focus::after {
+      width: 101%;
+      bottom: -1px;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      display: block;
+      width: 0%;
+      height: 3px;
+      background-color: $accent-color;
+      transition: color, width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    &--active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      display: block;
+      width: 101%;
+      height: 3px;
+      background-color: $accent-color;
+      transition: color, width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}
+.header__form {
+  position: relative;
+  max-width: 280px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  border-bottom: 0.5px solid $primary-text-color;
+  @media screen and(min-width: $tablet) {
+    max-width: 336px;
+  }
+  &-input {
+    width: 324px;
+    height: 20px;
+    outline: none;
+    border: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    color: $primary-text-color;
+    background-color: transparent;
+    &::placeholder {
+      margin-left: 4px;
+      margin-bottom: 4px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.14;
+      color: $primary-text-color;
+    }
+  }
+  &-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    outline: none;
+    border: none;
+    background-color: transparent;
+  }
+}
