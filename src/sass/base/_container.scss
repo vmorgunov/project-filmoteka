@@ -1,0 +1,18 @@
+// for mobile
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  width: $mobile;
+}
+
+// for tablets
+
+@media screen and(min-width: $tablet) {
+  width: $tablet;
+}
+
+// for desktop
+
+@media screen and(min-width: $desktop) {
+  width: $desktop;
+}
