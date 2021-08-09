@@ -10,10 +10,8 @@
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
-    .header {
-      background-image: linear-gradient($header-gradient, $header-gradient),
-        url('../images/header-mobile-bg@2x.jpg');
-    }
+    background-image: linear-gradient($header-gradient, $header-gradient),
+      url('../images/header-mobile-bg@2x.jpg');
   }
   @media screen and(min-width: $tablet) {
     background-image: linear-gradient($header-gradient, $header-gradient),
@@ -21,10 +19,8 @@
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      .header {
-        background-image: linear-gradient($header-gradient, $header-gradient),
-          url('../images/header-tablet-bg@2x.jpg');
-      }
+      background-image: linear-gradient($header-gradient, $header-gradient),
+        url('../images/header-tablet-bg@2x.jpg');
     }
   }
   @media screen and(min-width: $desktop) {
@@ -33,10 +29,8 @@
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      .header {
-        background-image: linear-gradient($header-gradient, $header-gradient),
-          url('../images/header-bg@2x.jpg');
-      }
+      background-image: linear-gradient($header-gradient, $header-gradient),
+        url('../images/header-bg@2x.jpg');
     }
   }
   &--library {
@@ -48,10 +42,8 @@
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      .header {
-        background-image: linear-gradient($header-gradient, $header-gradient),
-          url('../images/header-library-mobile-bg@2x.jpg');
-      }
+      background-image: linear-gradient($header-gradient, $header-gradient),
+        url('../images/header-library-mobile-bg@2x.jpg');
     }
     @media screen and(min-width: $tablet) {
       background-image: linear-gradient($header-gradient, $header-gradient),
@@ -59,10 +51,8 @@
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
-        .header {
-          background-image: linear-gradient($header-gradient, $header-gradient),
-            url('../images/header-library-tablet-bg@2x.jpg');
-        }
+        background-image: linear-gradient($header-gradient, $header-gradient),
+          url('../images/header-library-tablet-bg@2x.jpg');
       }
     }
     @media screen and(min-width: $desktop) {
@@ -71,10 +61,8 @@
       @media screen and (min-device-pixel-ratio: 2),
         screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
-        .header {
-          background-image: linear-gradient($header-gradient, $header-gradient),
-            url('../images/header-library-bg@2x.jpg');
-        }
+        background-image: linear-gradient($header-gradient, $header-gradient),
+          url('../images/header-library-bg@2x.jpg');
       }
     }
   }
