@@ -1,0 +1,37 @@
+.footer {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.1;
+  text-align: center;
+  padding-top: 29px;
+  padding-bottom: 29px;
+  color: $grey-primary-color;
+  background-color: $grey-secondary-color;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: inherit;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 28px;
+  }
+}
+
+.heart {
+  color: $accent-color;
+}
+
+.footer__copyright {
+  display: block;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0px;
+    margin-right: 3px;
+  }
+}
+
+.footer__developers--link {
+  display: inline-flex;
+}
