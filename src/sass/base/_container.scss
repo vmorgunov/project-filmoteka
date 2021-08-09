@@ -3,16 +3,16 @@
   margin: 0 auto;
   padding: 0 15px;
   width: $mobile;
-}
 
-// for tablets
+  // for tablets
 
-@media screen and(min-width: $tablet) {
-  width: $tablet;
-}
+  @media screen and(min-width: $tablet) {
+    width: $tablet;
+  }
 
-// for desktop
+  // for desktop
 
-@media screen and(min-width: $desktop) {
-  width: $desktop;
+  @media screen and(min-width: $desktop) {
+    width: $desktop;
+  }
 }
