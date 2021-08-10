@@ -21,10 +21,6 @@
   }
 }
 
-.heart {
-  color: $accent-color;
-}
-
 .footer__copyright {
   display: block;
   margin-bottom: 10px;
@@ -33,6 +29,11 @@
     margin-bottom: 0px;
     margin-right: 3px;
   }
+}
+
+.footer__icon-favorite {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .footer__developers--link {
