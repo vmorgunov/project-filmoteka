@@ -1,0 +1,11 @@
+<section class="gallery container">
+    
+    {{#each this}}
+    <div class="gallery-card">
+        <img class="gallery-img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}">
+        <h2>{{title}}</h2>
+        <div><p>{{genre_ids}} </p><span>| {{release_date}}</span></div>
+    </div>
+    {{/each}}
+</section>
+
