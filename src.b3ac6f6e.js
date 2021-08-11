@@ -75,4 +75,4 @@ module.exports=require("./lib/axios");
 },{"../templates/renderTrendingFilms.hbs":"LmUa","./apiService":"eQwa","./refs.js":"VyiV"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header-library.js"),require("./js/renderTrendingFilms.js");
 },{"./sass/main.scss":"clu1","./js/header-library.js":"XgnG","./js/renderTrendingFilms.js":"SrTl"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-filmoteka/src.af88e9e7.js.map
+//# sourceMappingURL=/project-filmoteka/src.b3ac6f6e.js.map
