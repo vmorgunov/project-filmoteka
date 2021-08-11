@@ -1,5 +1,6 @@
 import renderFilmsTmp from '../templates/renderTrendingFilms.hbs';
 import genres from '../js/genres.js';
+
 import FilmsApiService from './apiService';
 import getRefs from './refs.js';
 
@@ -10,12 +11,14 @@ function renderTrendingFilms(films) {
   const markup = renderFilmsTmp(films);
   refs.container.insertAdjacentHTML('afterbegin', markup);
   //   renderGenresHome(genres);
+
 }
 
 function showFilms() {
   films.fetchTrendingFilms().then(data => {
     console.log(data);
     renderGenresHome(data);
+    renderTrendingFilms(data);
   });
 }
 
@@ -41,3 +44,4 @@ function renderGenresHome(data) {
   });
   renderTrendingFilms(newData);
 }
+

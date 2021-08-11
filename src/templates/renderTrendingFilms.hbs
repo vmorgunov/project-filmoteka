@@ -1,5 +1,4 @@
-<section class='gallery container'>
-
+<section class='gallery'>
   {{#each this}}
     <div class='gallery-card'>
       <img
@@ -13,6 +12,8 @@
             &nbsp;|&nbsp;
           {{/if}}</p><span>
           {{release_date}}</span></div>
+      <div><p>{{genre_ids}} </p><span>| {{release_date}}</span></div>
+
     </div>
   {{/each}}
 </section>
