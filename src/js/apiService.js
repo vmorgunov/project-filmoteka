@@ -16,6 +16,7 @@ export default class FilmsApiService {
       );
       /*Returns obj {about, image, vote, votes, popularity, title, genre(array), date }*/
       console.log(response.data.results);
+
       return response.data.results; /**Destructing og DATA in renderTrendingFilms.js */
     } catch (error) {
       console.log(error);
