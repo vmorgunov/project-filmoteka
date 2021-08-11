@@ -11,7 +11,6 @@ function renderTrendingFilms(films) {
   const markup = renderFilmsTmp(films);
   refs.container.insertAdjacentHTML('afterbegin', markup);
   //   renderGenresHome(genres);
-
 }
 
 function showFilms() {
@@ -44,4 +43,3 @@ function renderGenresHome(data) {
   });
   renderTrendingFilms(newData);
 }
-
