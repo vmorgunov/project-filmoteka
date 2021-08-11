@@ -18,7 +18,7 @@
 
 .film-card {
   padding: 48px 20px 41px 20px;
-  background-color: white;
+  background-color: $bg-color;
   position: relative;
 
   @media screen and(min-width: $tablet) {
