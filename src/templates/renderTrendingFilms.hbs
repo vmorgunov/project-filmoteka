@@ -1,19 +1,10 @@
-<section class='gallery'>
-  {{#each this}}
-    <div class='gallery-card'>
-      <img
-        class='gallery-img'
-        src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-        alt='{{title}}'
-      />
+{{#each this}}
+  <div class='gallery-card'>
+    <img class='gallery-img' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}' />
+    <div class="gallery-card__info">
       <h2>{{title}}</h2>
-      <div><p class='genres-block'>{{#if genre_ids}}
-            <span>{{genre_ids}}</span>
-            &nbsp;|&nbsp;
-          {{/if}}</p><span>
-          {{release_date}}</span></div>
-      <div><p>{{genre_ids}} </p><span>| {{release_date}}</span></div>
-
+    <div><p class='genres-block'>
+    <p>{{genre_ids}} </p><span>| {{release_date}}</span></div>
     </div>
-  {{/each}}
-</section>
+  </div>
+{{/each}}

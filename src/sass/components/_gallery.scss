@@ -1,8 +1,23 @@
+.main {
+  padding-top: 20px;
+  padding-bottom: 40px;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-bottom: 46px;
+  }
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  margin-top: -15px;
-  margin-left: -15px;
+  @media screen and (min-width: $tablet) {
+    margin-top: -30px;
+    margin-left: -30px;
+  }
 
   h2 {
     color: $secondary-text-color;
@@ -11,11 +26,8 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-    margin-top: 10px;
     text-transform: uppercase;
-
   }
-
   p,
   span {
     display: inline;
@@ -31,27 +43,45 @@
 .gallery-card {
   display: flex;
   flex-direction: column;
-  @media screen and (max-width: 768px) {
-    margin-bottom: 20px;
-    width: 100%;
-  }
+  margin-bottom: 20px;
+  height: 448px;
+  width: 280px;
+  border-radius: 5px;
+  transition: all 250ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
 
   @media screen and (min-width: $tablet) {
+    height: 444px;
     flex-basis: calc(100% / 2 - 30px);
     margin-left: 30px;
     margin-top: 30px;
   }
-
   @media screen and (min-width: $desktop) {
     flex-basis: calc(100% / 3 - 30px);
     margin-left: 30px;
     margin-top: 30px;
   }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+    transform: scale(1.05);
+    @media screen and (min-width: $tablet) {
+      transform: scale(1.06);
+    }
+  }
+}
+
+.gallery-card__info {
+  padding: 9px 4px 6px 4px;
 }
 
 .gallery-img {
-  height: 440px;
-  max-width: 294px;
+  height: 402px;
+  max-width: 100%;
   object-fit: cover;
-  margin-bottom: 10px;
+  border-radius: 5px;
+  @media screen and (min-width: $tablet) {
+    height: 398px;
+  }
 }

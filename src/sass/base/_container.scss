@@ -1,18 +1,20 @@
 // Container for mobile
 .container {
   margin: 0 auto;
-  padding: 60px 15px;
+  padding: 0 20px;
   width: $mobile;
 
   // Container for tablet
 
   @media screen and(min-width: $tablet) {
     width: $tablet;
+    padding: 0 75px;
   }
 
   // Container for desktop
 
   @media screen and(min-width: $desktop) {
     width: $desktop;
+    padding: 0 71px;
   }
 }
