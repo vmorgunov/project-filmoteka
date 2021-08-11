@@ -15,11 +15,10 @@
     justify-content: center;
     padding-top: 30px;
     padding-bottom: 28px;
-  }
-}
 
-.heart {
-  color: $accent-color;
+    font-size: 16px;
+    line-height: 1.2;
+  }
 }
 
 .footer__copyright {
@@ -32,6 +31,18 @@
   }
 }
 
+.footer__icon-favorite {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .footer__developers--link {
   display: inline-flex;
+  color: $grey-primary-color;
+  transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1), transform 500ms ease-in-out;
+  text-decoration: underline;
+}
+
+.footer__developers--link:hover {
+  color: $accent-color;
 }
