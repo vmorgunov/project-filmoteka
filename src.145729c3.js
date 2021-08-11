@@ -82,4 +82,4 @@ var o;function t(o){return(t="function"==typeof Symbol&&"symbol"==typeof Symbol.
 },{"vanilla-back-to-top":"mehQ"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header-library.js"),require("./js/renderTrendingFilms.js"),require("./js/back-to-top.js");
 },{"./sass/main.scss":"clu1","./js/header-library.js":"XgnG","./js/renderTrendingFilms.js":"SrTl","./js/back-to-top.js":"EZ65"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-filmoteka/src.2f0d14b9.js.map
+//# sourceMappingURL=/project-filmoteka/src.145729c3.js.map
