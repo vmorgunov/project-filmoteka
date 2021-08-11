@@ -8,8 +8,10 @@
         alt='{{title}}'
       />
       <h2>{{title}}</h2>
-      <div><p class='genres-block'>{{genre_ids}} </p><span>
-          |
+      <div><p class='genres-block'>{{#if genre_ids}}
+            <span>{{genre_ids}}</span>
+            &nbsp;|&nbsp;
+          {{/if}}</p><span>
           {{release_date}}</span></div>
     </div>
   {{/each}}

@@ -22,17 +22,11 @@ function showFilms() {
 showFilms();
 
 function renderGenresHome(data) {
-  const genresBlock = refs.container.querySelectorAll('.genres-block');
-  console.log(genresBlock);
-
-  const arr = [];
-
   const newData = data.map(el => {
     let newGenres = [];
     el.genre_ids.map(id => {
       const foundId = genres.find(el => el.id === id);
       newGenres.push(foundId.name);
-      //   console.log(foundId);
     });
     if (newGenres.length >= 3) {
       const normalGenres = newGenres.slice(0, 2);
@@ -41,6 +35,7 @@ function renderGenresHome(data) {
       el.release_date = el.release_date.slice(0, 4);
     } else {
       el.genres_ids = newGenres.join(', ');
+      if (el.release_date) el.release_date = el.release_date.slice(0, 4);
     }
     return el;
   });
