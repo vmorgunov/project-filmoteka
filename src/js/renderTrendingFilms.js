@@ -13,9 +13,9 @@ function renderTrendingFilms(films) {
   //   renderGenresHome(genres);
 }
 
-function showFilms() {
+export default function showFilms() {
   films.fetchTrendingFilms().then(data => {
-    console.log(data);
+    // console.log(data);
     renderGenresHome(data);
   });
 }
@@ -35,7 +35,7 @@ function renderGenresHome(data) {
       el.genre_ids = normalGenres.join(', ');
       el.release_date = el.release_date.slice(0, 4);
     } else {
-      el.genres_ids = newGenres.join(', ');
+      el.genre_ids = newGenres.join(', ');
       if (el.release_date) el.release_date = el.release_date.slice(0, 4);
     }
     return el;

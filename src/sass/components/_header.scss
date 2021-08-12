@@ -193,6 +193,13 @@
       font-size: 14px;
       line-height: 1.14;
       color: $primary-text-color;
+      text-indent: 0px;
+      opacity: 1;
+      transition: all 0.4s ease;
+    }
+    &:focus::placeholder {
+      opacity: 0;
+      text-indent: 250px;
     }
   }
   &-btn {
