@@ -1,15 +1,11 @@
-const refs = {
-  homeEl: document.getElementById('home-link'),
-  myLibraryEl: document.getElementById('library-link'),
-  formEl: document.querySelector('.header__form'),
-  headerLibraryEl: document.querySelector('.header__library'),
-  headerContainer: document.querySelector('.header__container'),
-  headerEl: document.querySelector('.header'),
-};
+import getRefs from './refs.js';
+import showFilms from './renderTrendingFilms.js';
+const refs = getRefs();
 
 baseHome();
 
 function onHomeClick() {
+  showFilms();
   baseHome();
   refs.myLibraryEl.classList.remove('header-nav__link--active');
   refs.formEl.classList.remove('visually-hidden');
