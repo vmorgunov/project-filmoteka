@@ -1,0 +1,87 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+.backdrop-developers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: opacity $animation-dur $animation-type;
+  opacity: 1;
+  overflow-y: scroll;
+}
+
+.backdrop-developers.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: $animation-dur $animation-type;
+}
+
+.backdrop-developers.is-hidden .modal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.lightbox__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+}
+
+.modal {
+  position: absolute;
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity $animation-dur $animation-type, transform $animation-dur $animation-type;
+  width: 100%;
+  height: 609px;
+  padding: 40px 40px;
+  overflow-y: auto;
+
+  background-color: $primary-text-color;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  @media screen and (min-width: $tablet) {
+    width: 450px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 528px;
+    height: 581px;
+  }
+}
+
+.modal__close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  background: $primary-text-color;
+  fill: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 50%;
+  transition: fill $animation-dur $animation-type;
+
+  &:focus,
+  &:hover {
+    fill: $accent-color;
+  }
+}

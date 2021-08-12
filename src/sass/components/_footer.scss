@@ -34,7 +34,21 @@
 .footer__icon-favorite {
   margin-left: 10px;
   margin-right: 10px;
-  animation: heartbeat 2s infinite;
+  animation: heart 3000ms infinite 1000ms;
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .footer__developers--link {
@@ -46,25 +60,4 @@
 
 .footer__developers--link:hover {
   color: $accent-color;
-}
-
-@keyframes heartbeat {
-  0% {
-    transform: scale(0.75);
-  }
-  20% {
-    transform: scale(1);
-  }
-  40% {
-    transform: scale(0.75);
-  }
-  60% {
-    transform: scale(1);
-  }
-  80% {
-    transform: scale(0.75);
-  }
-  100% {
-    transform: scale(0.75);
-  }
 }
