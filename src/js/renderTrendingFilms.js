@@ -13,9 +13,9 @@ function renderTrendingFilms(films) {
   //   renderGenresHome(genres);
 }
 
-function showFilms() {
+export default function showFilms() {
   films.fetchTrendingFilms().then(data => {
-    console.log(data);
+    // console.log(data);
     renderGenresHome(data);
   });
 }
