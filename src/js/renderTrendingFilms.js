@@ -17,11 +17,10 @@ function showFilms() {
   films.fetchTrendingFilms().then(data => {
     console.log(data);
     renderGenresHome(data);
-    renderTrendingFilms(data);
   });
 }
 
-showFilms();
+window.onload = showFilms();
 
 function renderGenresHome(data) {
   const newData = data.map(el => {
