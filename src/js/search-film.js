@@ -2,7 +2,6 @@ import renderFilmsTmp from '../templates/renderTrendingFilms.hbs';
 import genres from '../js/genres.js';
 import FilmsApiService from './apiService';
 import getRefs from './refs.js';
-import showFilms from './renderTrendingFilms.js';
 import Notiflix from 'notiflix';
 
 const filmsApiService = new FilmsApiService();

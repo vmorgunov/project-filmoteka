@@ -20,8 +20,7 @@ function renderTrendingFilms(films) {
   refs.container.insertAdjacentHTML('afterbegin', markup);
 }
 
-
-export default function showFilms() {
+function showFilms() {
   films.fetchTrendingFilms().then(data => {
     // console.log(data);
     renderGenresHome(data);
@@ -51,3 +50,5 @@ function renderGenresHome(data) {
 }
 
 window.onload = showFilms();
+
+export { showFilms };
