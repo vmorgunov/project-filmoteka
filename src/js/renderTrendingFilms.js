@@ -20,9 +20,10 @@ function renderTrendingFilms(films) {
   refs.container.insertAdjacentHTML('afterbegin', markup);
 }
 
-//Function to show film on home-page
-function showFilms() {
+
+export default function showFilms() {
   films.fetchTrendingFilms().then(data => {
+    // console.log(data);
     renderGenresHome(data);
   });
 }

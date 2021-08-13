@@ -14,7 +14,6 @@ export default class FilmsApiService {
       const response = await axios.get(
         `${this.BASE_URL}trending/movie/week?api_key=${this.API_KEY}`,
       );
-      /*Returns obj {about, image, vote, votes, popularity, title, genre(array), date }*/
       return response.data.results; /**Destructing og DATA in renderTrendingFilms.js */
     } catch (error) {
       console.log(error);
@@ -22,7 +21,7 @@ export default class FilmsApiService {
   }
 
   /*!!!-----Finction fetching 1 film by searchQuery. API can return more than one film (info for render) */
-  async fetchSearchingFilm() {
+  async fetchSearchingFilms() {
     try {
       const response = await axios.get(
         `${this.BASE_URL}search/movie?api_key=${this.API_KEY}&query=${this.searchQuery}`,
@@ -36,5 +35,17 @@ export default class FilmsApiService {
 
   resetPage() {
     this.page = 1;
+  }
+
+  incrementPage() {
+    this.page += 1;
+  }
+
+  get query() {
+    return this.searchQuery;
+  }
+
+  set query(newQuery) {
+    this.searchQuery = newQuery;
   }
 }
