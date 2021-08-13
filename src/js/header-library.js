@@ -1,5 +1,5 @@
 import getRefs from './refs.js';
-import showFilms from './renderTrendingFilms.js';
+import { showFilms } from './renderTrendingFilms.js';
 const refs = getRefs();
 
 baseHome();

@@ -20,10 +20,14 @@ function renderTrendingFilms(films) {
   refs.container.insertAdjacentHTML('afterbegin', markup);
 }
 
-
-export default function showFilms() {
+function showFilms() {
   films.fetchTrendingFilms().then(data => {
-    // console.log(data);
+    renderGenresHome(data);
+  });
+}
+
+function showFilmsOnSearch(searchQuery) {
+  films.fetchSearchingFilms(searchQuery).then(data => {
     renderGenresHome(data);
   });
 }
@@ -45,9 +49,12 @@ function renderGenresHome(data) {
       el.genre_ids = newGenres.join(', ');
       if (el.release_date) el.release_date = el.release_date.slice(0, 4);
     }
+
     return el;
   });
   renderTrendingFilms(newData);
 }
 
 window.onload = showFilms();
+
+export { showFilms, showFilmsOnSearch };
