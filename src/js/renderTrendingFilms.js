@@ -1,5 +1,5 @@
 import renderFilmsTmp from '../templates/renderTrendingFilms.hbs';
-import genres from '../js/genres.js';
+import allGenres from '../js/genres.json';
 
 import FilmsApiService from './apiService';
 import getRefs from './refs.js';
@@ -7,26 +7,32 @@ import getRefs from './refs.js';
 const films = new FilmsApiService();
 const refs = getRefs();
 
+//get all genres from json file
+function getGenres() {
+  const { genres } = allGenres;
+
+  return genres;
+}
+
+//Render films markup
 function renderTrendingFilms(films) {
   const markup = renderFilmsTmp(films);
   refs.container.insertAdjacentHTML('afterbegin', markup);
-  //   renderGenresHome(genres);
 }
 
+//Function to show film on home-page
 function showFilms() {
   films.fetchTrendingFilms().then(data => {
-    console.log(data);
     renderGenresHome(data);
   });
 }
 
-window.onload = showFilms();
-
+//Getting correct data with all genres for rendering on home-page
 function renderGenresHome(data) {
   const newData = data.map(el => {
     let newGenres = [];
     el.genre_ids.map(id => {
-      const foundId = genres.find(el => el.id === id);
+      const foundId = getGenres().find(el => el.id === id);
       newGenres.push(foundId.name);
     });
     if (newGenres.length >= 3) {
@@ -42,3 +48,5 @@ function renderGenresHome(data) {
   });
   renderTrendingFilms(newData);
 }
+
+window.onload = showFilms();
