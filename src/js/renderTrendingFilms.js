@@ -27,7 +27,6 @@ function showFilms() {
 //Render films on Search
 function showFilmsOnSearch(searchQuery) {
   films.fetchSearchingFilms(searchQuery).then(data => {
-    renderGenresHome(data);
     if (data.length === 0) {
       onInputError();
     }
@@ -35,6 +34,7 @@ function showFilmsOnSearch(searchQuery) {
       refs.container.innerHTML = '';
       findMessage(data.length);
     }
+    renderGenresHome(data);
   });
 }
 
