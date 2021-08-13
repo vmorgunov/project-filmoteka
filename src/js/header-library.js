@@ -1,12 +1,13 @@
 import getRefs from './refs.js';
-import showFilms from './renderTrendingFilms.js';
+import { showFilms } from './renderTrendingFilms.js';
 const refs = getRefs();
 
 baseHome();
 
 function onHomeClick() {
-  showFilms();
+  clearContainer();
   baseHome();
+  showFilms();
   refs.myLibraryEl.classList.remove('header-nav__link--active');
   refs.formEl.classList.remove('visually-hidden');
   refs.headerContainer.classList.remove('header__container--library');
@@ -14,6 +15,7 @@ function onHomeClick() {
 }
 
 function onMyLibraryClick() {
+  clearContainer();
   refs.homeEl.classList.remove('header-nav__link--active');
   refs.myLibraryEl.classList.add('header-nav__link--active');
   refs.formEl.classList.add('visually-hidden');
@@ -25,6 +27,10 @@ function onMyLibraryClick() {
 function baseHome() {
   refs.homeEl.classList.add('header-nav__link--active');
   refs.headerLibraryEl.classList.add('visually-hidden');
+}
+
+function clearContainer() {
+  refs.container.innerHTML = '';
 }
 
 refs.homeEl.addEventListener('click', onHomeClick);

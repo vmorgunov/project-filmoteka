@@ -51,4 +51,4 @@ function renderGenresHome(data) {
 
 window.onload = showFilms();
 
-export { showFilms, renderGenresHome, getGenres };
+export { showFilms };
