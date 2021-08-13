@@ -1,14 +1,19 @@
 import renderFilmsTmp from '../templates/renderTrendingFilms.hbs';
-import genres from '../js/genres.js';
 import FilmsApiService from './apiService';
 import getRefs from './refs.js';
-import showFilms from './renderTrendingFilms.js';
 import Notiflix from 'notiflix';
+import allGenres from '../js/genres.json';
 
 const filmsApiService = new FilmsApiService();
 const refs = getRefs();
 
 refs.searchForm.addEventListener('submit', onSearch);
+
+function getGenres() {
+  const { genres } = allGenres;
+
+  return genres;
+}
 
 async function onSearch(e) {
   e.preventDefault();
@@ -40,7 +45,7 @@ function renderGenresSearch(data) {
   const newData = data.map(el => {
     let newGenres = [];
     el.genre_ids.map(id => {
-      const foundId = genres.find(el => el.id === id);
+      const foundId = getGenres().find(el => el.id === id);
       newGenres.push(foundId.name);
     });
     if (newGenres.length >= 3) {
