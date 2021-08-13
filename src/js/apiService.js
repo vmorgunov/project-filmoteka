@@ -21,10 +21,10 @@ export default class FilmsApiService {
   }
 
   /*!!!-----Finction fetching 1 film by searchQuery. API can return more than one film (info for render) */
-  async fetchSearchingFilms() {
+  async fetchSearchingFilms(searchQuery) {
     try {
       const response = await axios.get(
-        `${this.BASE_URL}search/movie?api_key=${this.API_KEY}&query=${this.searchQuery}`,
+        `${this.BASE_URL}search/movie?api_key=${this.API_KEY}&query=${searchQuery}`,
       );
       /*Returns obj {about, image, vote, votes, popularity, title, genre(array), date } */
       return response.data.results;
