@@ -14,9 +14,6 @@ export default class FilmsApiService {
       const response = await axios.get(
         `${this.BASE_URL}trending/movie/week?api_key=${this.API_KEY}`,
       );
-      /*Returns obj {about, image, vote, votes, popularity, title, genre(array), date }*/
-      // console.log(response.data.results);
-
       return response.data.results; /**Destructing og DATA in renderTrendingFilms.js */
     } catch (error) {
       console.log(error);

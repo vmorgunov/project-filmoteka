@@ -1,6 +1,11 @@
 {{#each this}}
   <div class='gallery-card'>
+     {{#if poster_path}}
     <img loading="lazy" class='gallery-img' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}' />
+    {{else}}
+     <img data-id={{id}} class="gallery-img" src="../images/not-available.jpg"
+        alt="{{title}}" />
+      {{/if}}
     <div class="gallery-card__info">
       <h2>{{title}}</h2>
     <div><p class='genres-block'>
