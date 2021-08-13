@@ -3,8 +3,6 @@ import { showFilmsOnSearch } from './renderTrendingFilms.js';
 import renderFilmsTmp from '../templates/renderTrendingFilms.hbs';
 import FilmsApiService from './apiService';
 import getRefs from './refs.js';
-import Notiflix from 'notiflix';
-import allGenres from '../js/genres.json';
 
 const filmsApiService = new FilmsApiService();
 const refs = getRefs();
@@ -28,24 +26,8 @@ async function onSearch(e) {
   filmsApiService.resetPage();
 
   try {
-    const getFilms = await showFilmsOnSearch(searchQuery);
-    if (getFilms.length === 0) {
-      onInputError();
-    }
-    if (getFilms.length > 0) {
-      refs.container.innerHTML = '';
-      findMessage(getFilms.length);
-    }
+    await showFilmsOnSearch(searchQuery);
   } catch (error) {
     console.log(error);
   }
-}
-function onInputError() {
-  Notiflix.Notify.failure(
-    'Search result not successful. Enter the correct movie name and try again',
-  );
-}
-
-function findMessage(message) {
-  Notiflix.Notify.info(`Let's go! We found ${message} films.`);
 }

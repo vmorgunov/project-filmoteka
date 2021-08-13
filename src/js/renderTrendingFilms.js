@@ -1,6 +1,6 @@
 import renderFilmsTmp from '../templates/renderTrendingFilms.hbs';
 import allGenres from '../js/genres.json';
-
+import { onInputError, findMessage } from './notifications.js';
 import FilmsApiService from './apiService';
 import getRefs from './refs.js';
 
@@ -10,12 +10,11 @@ const refs = getRefs();
 //get all genres from json file
 function getGenres() {
   const { genres } = allGenres;
-
   return genres;
 }
 
 //Render films markup
-function renderTrendingFilms(films) {
+function renderFilms(films) {
   const markup = renderFilmsTmp(films);
   refs.container.insertAdjacentHTML('afterbegin', markup);
 }
@@ -25,10 +24,17 @@ function showFilms() {
     renderGenresHome(data);
   });
 }
-
+//Render films on Search
 function showFilmsOnSearch(searchQuery) {
   films.fetchSearchingFilms(searchQuery).then(data => {
     renderGenresHome(data);
+    if (data.length === 0) {
+      onInputError();
+    }
+    if (data.length > 0) {
+      refs.container.innerHTML = '';
+      findMessage(data.length);
+    }
   });
 }
 
@@ -52,7 +58,7 @@ function renderGenresHome(data) {
 
     return el;
   });
-  renderTrendingFilms(newData);
+  renderFilms(newData);
 }
 
 window.onload = showFilms();
