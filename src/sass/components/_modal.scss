@@ -210,9 +210,7 @@ body.is-hidden {
   border-radius: 5px;
   border: 1px solid $secondary-text-color;
 
-  transition: color $animation-dur $animation-type;
-  transition: border $animation-dur $animation-type;
-  transition: background-color $animation-dur $animation-type;
+  transition: all $animation-dur $animation-type;
 
   @media screen and(min-width: $tablet) {
     width: 125px;
@@ -226,7 +224,7 @@ body.is-hidden {
   &:focus {
     color: $primary-text-color;
     background-color: $accent-color;
-    border: none;
+    border: 1px solid $accent-color;
   }
 }
 
