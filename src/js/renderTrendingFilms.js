@@ -19,14 +19,14 @@ function renderFilms(films) {
   refs.container.innerHTML = markup;
 }
 
-function showFilms() {
-  films.fetchTrendingFilms().then(data => {
-    renderGenresHome(data);
+function showFilms(page) {
+  films.fetchTrendingFilms(page).then(data => {
+    renderGenresHome(data.results);
   });
 }
 //Render films on Search
-function showFilmsOnSearch(searchQuery) {
-  films.fetchSearchingFilms(searchQuery).then(data => {
+function showFilmsOnSearch(searchQuery, page) {
+  films.fetchSearchingFilms(searchQuery, page).then(data => {
     if (data.length === 0) {
       onInputError();
     }
@@ -34,7 +34,7 @@ function showFilmsOnSearch(searchQuery) {
       refs.container.innerHTML = '';
       findMessage(data.length);
     }
-    renderGenresHome(data);
+    renderGenresHome(data.results);
   });
 }
 
@@ -61,6 +61,6 @@ function renderGenresHome(data) {
   renderFilms(newData);
 }
 
-window.onload = showFilms();
+window.onload = showFilms(1);
 
 export { showFilms, showFilmsOnSearch, renderGenresHome, renderFilms, getGenres };
