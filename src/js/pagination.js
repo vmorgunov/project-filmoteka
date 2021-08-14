@@ -1,72 +1,71 @@
-import renderFilmsTmp from '../templates/renderTrendingFilms.hbs';
+import FilmsApiService from './apiService';
 import getRefs from './refs.js';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.min.css';
-import { showFilms, renderGenresHome, renderFilms, getGenres } from './renderTrendingFilms.js'
-const API_KEY = '3df6184500ed5682d4d34cc3cdc4b7c7';
-const BASE_URL = 'https://api.themoviedb.org/3/';
+import 'tui-pagination/dist/tui-pagination.css';
+import { showFilms, showFilmsOnSearch, renderGenresHome, renderFilms } from './renderTrendingFilms.js'
+
 const refs = getRefs();
+
+refs.searchForm.addEventListener('submit', wordInput);
+
+// PAGINATION ON TRENDING FILMS
 const container = document.getElementById('tui-pagination-container');
 const instance = new Pagination(container, {
     totalItems: 10,
     itemsPerPage: 10,
-    visiblePages: 10,
+    visiblePages: 5,
     page: 1,
     centerAlign: true,
 });
 
-getGenres();
-
+const films = new FilmsApiService();
 const page = instance.getCurrentPage();
-  fetchImages(page).then(data => {
-      console.log(data);
-      instance.reset(data.total_pages);
+
+films.fetchTrendingFilms(page).then(data => {
+  console.log(data);
+  instance.reset(data.total_pages);
 })
 
 instance.on('afterMove', (event) => {
-    const currentPage = event.page
-    fetchImages(currentPage).then(data => {
-        renderFilms(data.results);
-        renderGenresHome1(data.results);
-        showFilms1(event.page);
-    });
+  const currentPage = event.page
+  films.fetchTrendingFilms(currentPage).then(data => {
+    renderFilms(data.results);
+    renderGenresHome(data.results);
+    showFilms(event.page);
+  });
 });
 
-  function fetchImages(page){
-    return fetch(
-      `${BASE_URL}trending/movie/week?api_key=${API_KEY}&page=${page}`
-      ).then(res => res.json())
-    }
+// PAGINATION ON SEARCH FILMS
 
-    function showFilms1(page) {
-        fetchImages(page).then(data => {
-          renderGenresHome1(data.results);
-        });
-      }
+const containerSearch = document.getElementById('tui-pagination-container-search');
+const instanceSearch = new Pagination(containerSearch, {
+  totalItems: 10,
+  itemsPerPage: 10,
+  visiblePages: 5,
+  page: 1,
+  centerAlign: true,
+});
 
-      function renderGenresHome1(data) {
-        const newData = data.map(el => {
-          let newGenres = [];
-          el.genre_ids.map(id => {
-            const foundId = getGenres().find(el => el.id === id);
-            newGenres.push(foundId.name);
-          });
-          if (newGenres.length >= 3) {
-            const normalGenres = newGenres.slice(0, 2);
-            normalGenres.push('Other');
-            el.genre_ids = normalGenres.join(', ');
-            el.release_date = el.release_date.slice(0, 4);
-          } else {
-            el.genre_ids = newGenres.join(', ');
-            if (el.release_date) el.release_date = el.release_date.slice(0, 4);
-          }
-      
-          return el;
-        });
-        renderFilms1(newData);
-      }
+const pageSearch = instanceSearch.getCurrentPage();
 
-      function renderFilms1(films) {
-        const markup = renderFilmsTmp(films);
-        refs.container.innerHTML = markup;
-      }
+function wordInput(e) {
+  e.preventDefault(e);
+  container.style.display = 'none';
+  containerSearch.style.display = 'block';
+  const searchQuery = e.currentTarget.elements.searchQuery.value.trim();
+  films.fetchSearchingFilms(searchQuery, pageSearch).then(data => {
+    console.log(data);
+    instanceSearch.reset(data.total_pages);
+  })
+  
+  instanceSearch.on('afterMove', (event) => {
+    const currentPage = event.page
+    films.fetchSearchingFilms(searchQuery, currentPage).then(data => {
+      renderFilms(data.results);
+      renderGenresHome(data.results);
+      showFilmsOnSearch(searchQuery, event.page);
+    });
+  });
+}
+
+window.onload = containerSearch.style.display = 'none';
