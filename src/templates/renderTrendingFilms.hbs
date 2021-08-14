@@ -1,5 +1,5 @@
 {{#each this}}
-  <div class='gallery-card'>
+  <div class='gallery-card' id='{{id}}'>
      {{#if poster_path}}
     <img loading="lazy" class='gallery-img' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}' />
     {{else}}
