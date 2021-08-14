@@ -16,7 +16,7 @@ function getGenres() {
 //Render films markup
 function renderFilms(films) {
   const markup = renderFilmsTmp(films);
-  refs.container.insertAdjacentHTML('afterbegin', markup);
+  refs.container.innerHTML = markup;
 }
 
 function showFilms() {
@@ -63,4 +63,4 @@ function renderGenresHome(data) {
 
 window.onload = showFilms();
 
-export { showFilms, showFilmsOnSearch };
+export { showFilms, showFilmsOnSearch, renderGenresHome, renderFilms, getGenres };
