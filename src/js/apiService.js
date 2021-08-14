@@ -33,6 +33,33 @@ export default class FilmsApiService {
     }
   }
 
+  async fetchFilmsInfo(id) {
+    try {
+      const response = await axios.get(`${this.BASE_URL}/movie/${id}?api_key=${this.API_KEY}`);
+      return {
+        ...response.data,
+        popularity: response.data.popularity.toFixed(1),
+        original_title: response.data.original_title.toUpperCase(),
+      }; /**Destructing og DATA in renderTrendingFilms.js */
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //search film by id for trailers
+  async fetchFilmsById(movie_id) {
+    try {
+      const response = await axios.get(
+        `${this.BASE_URL}movie/${movie_id}/videos?api_key=${this.API_KEY}&language=en-US`,
+      );
+      /*Returns obj {about, image, vote, votes, popularity, title, genre(array), date } */
+
+      return response.data.results[0].key;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   resetPage() {
     this.page = 1;
   }

@@ -1,25 +1,12 @@
 import renderPageTpl from '../templates/renderModalFilmPage.hbs';
+import FilmsApiService from './apiService.js';
+import getRefs from './refs';
 
-const gallery = document.querySelector('.gallery');
-const modal = document.querySelector('.backdrop');
-const overlay = document.querySelector('.backdrop');
-const isFilmCard = document.querySelector('.film-card');
-const body = document.querySelector('body');
+const films = new FilmsApiService();
 
-function fetchFilmInfo(id) {
-  const API_KEY = '3df6184500ed5682d4d34cc3cdc4b7c7';
-  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
+const refs = getRefs();
 
-  return fetch(url)
-    .then(r => r.json())
-    .then(data => ({
-      ...data,
-      popularity: data.popularity.toFixed(1),
-      original_title: data.original_title.toUpperCase(),
-    }));
-}
-
-gallery.addEventListener('click', onOpenFilm);
+refs.gallery.addEventListener('click', onOpenFilm);
 
 function onOpenFilm(e) {
   e.preventDefault();
@@ -27,32 +14,36 @@ function onOpenFilm(e) {
   const galleryCard = e.target.parentNode;
   const galleryCardId = galleryCard.id;
   const isGalleryCard = galleryCard.classList.contains('gallery-card');
+  const filmUrl = films.fetchFilmsById(galleryCardId);
 
-  fetchFilmInfo(galleryCardId).then(data => {
+  films.fetchFilmsInfo(galleryCardId).then(data => {
     if (!isGalleryCard) {
       return;
     }
 
     const markup = renderPageTpl(data);
-    isFilmCard.innerHTML = markup;
+    refs.isFilmCard.innerHTML = markup;
 
-    modal.classList.toggle('is-hidden');
+    const trailer = document.querySelector('#trailer');
+    trailer.setAttribute('src', `https://www.youtube.com/embed/${filmUrl}`);
+
+    refs.modal.classList.toggle('is-hidden');
 
     const closeModalBtn = document.querySelector('.close-modal__button');
     closeModalBtn.addEventListener('click', onCloseFilm);
 
-    body.classList.add('is-hidden');
+    refs.body.classList.add('is-hidden');
   });
 
-  overlay.addEventListener('click', onOverlayClick);
+  refs.overlay.addEventListener('click', onOverlayClick);
   window.addEventListener('keydown', onEscKeyPress);
 
   function onCloseFilm() {
-    modal.classList.toggle('is-hidden');
+    refs.modal.classList.toggle('is-hidden');
     window.removeEventListener('keydown', onEscKeyPress);
-    overlay.removeEventListener('click', onOverlayClick);
+    refs.overlay.removeEventListener('click', onOverlayClick);
     clearModal();
-    body.classList.remove('is-hidden');
+    refs.body.classList.remove('is-hidden');
   }
 
   function onOverlayClick(e) {
@@ -69,6 +60,6 @@ function onOpenFilm(e) {
   }
 
   function clearModal() {
-    isFilmCard.innerHTML = '';
+    refs.isFilmCard.innerHTML = '';
   }
 }

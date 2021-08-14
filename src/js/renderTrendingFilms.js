@@ -16,7 +16,7 @@ function getGenres() {
 //Render films markup
 function renderFilms(films) {
   const markup = renderFilmsTmp(films);
-  refs.container.innerHTML = markup;
+  refs.container.insertAdjacentHTML('afterbegin', markup);
 }
 
 function showFilms() {
@@ -33,8 +33,8 @@ function showFilmsOnSearch(searchQuery) {
     if (data.length > 0) {
       refs.container.innerHTML = '';
       findMessage(data.length);
+      renderGenresHome(data);
     }
-    renderGenresHome(data);
   });
 }
 
@@ -63,4 +63,4 @@ function renderGenresHome(data) {
 
 window.onload = showFilms();
 
-export { showFilms, showFilmsOnSearch, renderGenresHome, renderFilms, getGenres };
+export { showFilms, showFilmsOnSearch };
