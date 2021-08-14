@@ -1,0 +1,70 @@
+  <div class='film-card__img'><img src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}' />
+  </div>
+
+  <div class='film-card__container'>
+    <div class='film-card__descr'>
+      <h2 class='film-card__title'>{{original_title}}</h2>
+      <ul class='film-specification__list'>
+        <li class='film-specification__item'>
+          <p class='film-specification__name'>Vote<span class='symbol'>&#47</span>Votes</p>
+          <span class='film-specification__value film-specification__vote'>
+            <span class='film-specification__vote--light'>{{vote_average}}</span><span
+              class='symbol'
+            >&#47</span>{{vote_count}}
+          </span>
+        </li>
+
+        <li class='film-specification__item'>
+          <p class='film-specification__name'>Popularity</p>
+          <span class='film-specification__value film-specification__pop'>{{popularity}}</span>
+        </li>
+
+        <li class='film-specification__item'>
+          <p class='film-specification__name'>Original Title</p>
+          <span class='film-specification__value'>{{original_title}}</span>
+        </li>
+
+        <li class='film-specification__item'>
+          <p class='film-specification__name'>Genre</p>
+          {{#each genres}}
+          <ul class='film-specification__value film-specification__genres'>
+            <li>{{this.name}}</li>
+          </ul>
+          {{/each}}
+        </li>
+      </ul>
+    
+
+    <div class='film-card__descr'>
+      <h3 class='description__title'>ABOUT</h3>
+      <p class='description__text'>
+        {{overview}}
+      </p>
+    </div>
+
+    <div class="film-card__buttons">
+      <button id="addBtnWatched">ADD TO WATCHED</button>
+      <button id="addBtnQueue">ADD TO QUEUE</button>
+    </div>
+
+    <button class="close-modal__button">
+      <svg class="modal-icon" width="14" height="14">
+        <path fill="none" stroke-width="2.133" stroke="#000" d="M8.533 8.533l14.933 14.933M8.533 23.467L23.466 8.534"/>
+        </symbol>
+      </svg>
+    </button>
+  </div>
+    {{!-- <button class="close-modal__button">
+      <svg class="modal-icon" width="14" height="14">
+        <use
+          href="./images/sprite.svg#icon-close
+        "
+        ></use>
+      </svg>
+    </button> --}}
+
+    
+
+    
+    
+    
