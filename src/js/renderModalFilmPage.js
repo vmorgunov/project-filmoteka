@@ -25,7 +25,7 @@ function onOpenFilm(e) {
     refs.isFilmCard.innerHTML = markup;
 
     const trailer = document.querySelector('#trailer');
-    trailer.setAttribute('src', `https://www.youtube.com/embed/${filmUrl}`);
+    trailer.setAttribute('href', `https://www.youtube.com/embed/${filmUrl}`);
 
     refs.modal.classList.toggle('is-hidden');
 
@@ -40,9 +40,9 @@ function onOpenFilm(e) {
 
   function onCloseFilm() {
     refs.modal.classList.toggle('is-hidden');
+    clearModal();
     window.removeEventListener('keydown', onEscKeyPress);
     refs.overlay.removeEventListener('click', onOverlayClick);
-    clearModal();
     refs.body.classList.remove('is-hidden');
   }
 

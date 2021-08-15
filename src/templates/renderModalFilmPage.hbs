@@ -3,7 +3,7 @@
 
   <div class='film-card__container'>
     <div class='film-card__descr'>
-      <h2 class='film-card__title'>{{original_title}}</h2>
+      <h2 class='film-card__title'>{{title}}</h2>
       <ul class='film-specification__list'>
         <li class='film-specification__item'>
           <p class='film-specification__name'>Vote<span class='symbol'>&#47</span>Votes</p>
@@ -24,21 +24,24 @@
           <span class='film-specification__value'>{{original_title}}</span>
         </li>
 
-        <li class='film-specification__item'>
+        <li  class='film-specification__item'>
           <p class='film-specification__name'>Genre</p>
+          <ul id='genres'class='film-specification__value film-specification__genres'>
           {{#each genres}}
-          <ul class='film-specification__value film-specification__genres'>
-            <li>{{this.name}}</li>
-          </ul>
+            <li id='genre'>{{this.name}}</li>
           {{/each}}
+          </ul>
         </li>
-        <li class='film-specification__item'>
+
+        <li class='film-specification__item film-specification__trailer' >
           <p class='film-specification__name'>Trailer</p>
-          <iframe id ="trailer" src="" frameborder="0"></iframe>
+          <a id ="trailer" href=""  frameborder="0">
+            <p>Watch to YouTube</p>
+            <img class="youimg" src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+          </a>
         </li>
       </ul>
     
-
     <div class='film-card__descr'>
       <h3 class='description__title'>ABOUT</h3>
       <p class='description__text'>
@@ -57,15 +60,15 @@
         </symbol>
       </svg>
     </button>
-  </div>
     {{!-- <button class="close-modal__button">
-      <svg class="modal-icon" width="14" height="14">
+      <svg class="modal-icon" width="30" height="30">
         <use
           href="./images/sprite.svg#icon-close
         "
         ></use>
       </svg>
     </button> --}}
+  </div>
 
     
 
