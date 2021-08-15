@@ -1,6 +1,8 @@
 import renderPageTpl from '../templates/renderModalFilmPage.hbs';
+import renderTrendingFilms from '../templates/renderTrendingFilms.hbs';
 import FilmsApiService from './apiService.js';
 import getRefs from './refs';
+import { watchedLocalStorage, queueLocalStorage } from './addFilmToLibrary';
 
 const films = new FilmsApiService();
 
@@ -33,6 +35,58 @@ function onOpenFilm(e) {
     closeModalBtn.addEventListener('click', onCloseFilm);
 
     refs.body.classList.add('is-hidden');
+
+    //--------------------------Функционал кнопок
+
+    const addToWatchedBtn = document.querySelector('#addBtnWatched');
+    const addToQueueBtn = document.querySelector('#addBtnQueue');
+
+    addToWatchedBtn.addEventListener('click', onAddToWatchedClick);
+    addToQueueBtn.addEventListener('click', onAddToQueueClick);
+
+    function onAddToWatchedClick(e) {
+      watchedLocalStorage(galleryCardId);
+      e.target.textContent = 'remove from watched';
+      e.target.style.backgroundColor = '#ff6b08';
+      e.target.style.color = '#fff';
+      e.target.style.borderColor = '#ff6b08';
+
+      addToWatchedBtn.removeEventListener('click', onAddToWatchedClick);
+      addToWatchedBtn.addEventListener('click', onRemoveFromWatchedClick);
+    }
+
+    function onAddToQueueClick(e) {
+      queueLocalStorage(galleryCardId);
+      e.target.textContent = 'remove from queue';
+      e.target.style.backgroundColor = '#ff6b08';
+      e.target.style.color = '#fff';
+      e.target.style.borderColor = '#ff6b08';
+
+      addToQueueBtn.removeEventListener('click', onAddToQueueClick);
+      addToQueueBtn.addEventListener('click', onRemoveFromQueueClick);
+    }
+
+    function onRemoveFromWatchedClick(e) {
+      watchedLocalStorage(galleryCardId);
+      e.target.textContent = 'add to watched';
+      e.target.style.backgroundColor = '#fff';
+      e.target.style.color = '#000';
+      e.target.style.borderColor = '#000';
+
+      addToWatchedBtn.removeEventListener('click', onRemoveFromWatchedClick);
+      addToWatchedBtn.addEventListener('click', onAddToWatchedClick);
+    }
+
+    function onRemoveFromQueueClick(e) {
+      queueLocalStorage(galleryCardId);
+      e.target.textContent = 'add to queue';
+      e.target.style.backgroundColor = '#fff';
+      e.target.style.color = '#000';
+      e.target.style.borderColor = '#000';
+
+      addToQueueBtn.removeEventListener('click', onRemoveFromQueueClick);
+      addToQueueBtn.addEventListener('click', onAddToQueueClick);
+    }
   });
 
   refs.overlay.addEventListener('click', onOverlayClick);
