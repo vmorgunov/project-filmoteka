@@ -4,9 +4,14 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { showFilms, showFilmsOnSearch, renderGenresHome, renderFilms } from './renderTrendingFilms.js'
 
+
+
 const refs = getRefs();
 
 refs.searchForm.addEventListener('submit', wordInput);
+refs.homeEl.addEventListener('click', clickHomeFilms);
+
+
 
 // PAGINATION ON TRENDING FILMS
 const container = document.getElementById('tui-pagination-container');
@@ -21,19 +26,25 @@ const instance = new Pagination(container, {
 const films = new FilmsApiService();
 const page = instance.getCurrentPage();
 
-films.fetchTrendingFilms(page).then(data => {
-  console.log(data);
-  instance.reset(data.total_pages);
-})
+topFilmsRender();
 
-instance.on('afterMove', (event) => {
-  const currentPage = event.page
-  films.fetchTrendingFilms(currentPage).then(data => {
-    renderFilms(data.results);
-    renderGenresHome(data.results);
-    showFilms(event.page);
+function topFilmsRender() {
+  films.fetchTrendingFilms(page).then(data => {
+    instance.reset(data.total_pages);
+  })
+  
+  instance.on('afterMove', (event) => {
+    const currentPage = event.page
+    films.fetchTrendingFilms(currentPage).then(data => {
+      renderFilms(data.results);
+      renderGenresHome(data.results);
+      showFilms(event.page);
+    });
   });
-});
+}
+function clickHomeFilms() {
+  topFilmsRender();
+}
 
 // PAGINATION ON SEARCH FILMS
 
@@ -50,8 +61,8 @@ const pageSearch = instanceSearch.getCurrentPage();
 
 function wordInput(e) {
   e.preventDefault(e);
-  container.style.display = 'none';
-  containerSearch.style.display = 'block';
+  setPaginationOnHome('none');
+  setPaginationOnSearch('block');
   const searchQuery = e.currentTarget.elements.searchQuery.value.trim();
   films.fetchSearchingFilms(searchQuery, pageSearch).then(data => {
     console.log(data);
@@ -68,4 +79,20 @@ function wordInput(e) {
   });
 }
 
-window.onload = containerSearch.style.display = 'none';
+window.onload = setPaginationOnSearch('none');
+
+function removePagination(makrup) {
+  containerSearch.style.display = makrup;
+  container.style.display = makrup;
+}
+
+function setPaginationOnHome(markup) {
+  container.style.display = markup;
+}
+
+function setPaginationOnSearch(markup) {
+  containerSearch.style.display = markup;
+}
+
+
+export { removePagination, setPaginationOnHome }
