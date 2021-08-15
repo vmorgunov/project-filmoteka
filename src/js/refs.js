@@ -13,5 +13,8 @@ export default function getRefs() {
     gallery: document.querySelector('.gallery'),
     isFilmCard: document.querySelector('.film-card'),
     body: document.querySelector('body'),
+    logo: document.querySelector('.header__logo'),
+    watchedBtn: document.querySelector('#watched-btn'),
+    queueBtn: document.querySelector('#queue-btn'),
   };
 }
