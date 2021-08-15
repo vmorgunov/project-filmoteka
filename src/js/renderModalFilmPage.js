@@ -1,5 +1,4 @@
 import renderPageTpl from '../templates/renderModalFilmPage.hbs';
-import renderTrendingFilms from '../templates/renderTrendingFilms.hbs';
 import FilmsApiService from './apiService.js';
 import getRefs from './refs';
 import { watchedLocalStorage, queueLocalStorage } from './addFilmToLibrary';
@@ -45,7 +44,7 @@ function onOpenFilm(e) {
     //-------------Кнопка Watched
     let savedIdWatched = JSON.parse(localStorage.getItem('Watched'));
 
-    if (savedIdWatched && savedIdWatched.MovieIDWatched.includes(galleryCardId)) {
+    if (savedIdWatched && savedIdWatched.movieIDWatched.includes(galleryCardId)) {
       addToWatchedBtn.textContent = 'remove from watched';
       addToWatchedBtn.style.backgroundColor = '#ff6b01';
       addToWatchedBtn.style.color = '#ffffff';
@@ -81,7 +80,7 @@ function onOpenFilm(e) {
     //--------------Кнопка Queue
     let savedIdQueue = JSON.parse(localStorage.getItem('Queue'));
 
-    if (savedIdQueue && savedIdQueue.MovieIDQueue.includes(galleryCardId)) {
+    if (savedIdQueue && savedIdQueue.movieIDQueue.includes(galleryCardId)) {
       addToQueueBtn.textContent = 'remove from queue';
       addToQueueBtn.style.backgroundColor = '#ff6b08';
       addToQueueBtn.style.color = '#fff';

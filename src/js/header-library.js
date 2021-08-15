@@ -7,7 +7,7 @@ baseHome();
 function onHomeClick() {
   clearContainer();
   baseHome();
-  showFilms();
+  showFilms(1);
   refs.myLibraryEl.classList.remove('header-nav__link--active');
   refs.formEl.classList.remove('visually-hidden');
   refs.headerContainer.classList.remove('header__container--library');
@@ -35,3 +35,6 @@ function clearContainer() {
 
 refs.homeEl.addEventListener('click', onHomeClick);
 refs.myLibraryEl.addEventListener('click', onMyLibraryClick);
+refs.logo.addEventListener('click', onHomeClick);
+
+export { clearContainer };
