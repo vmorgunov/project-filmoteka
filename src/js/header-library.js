@@ -1,5 +1,6 @@
 import getRefs from './refs.js';
 import { showFilms } from './renderTrendingFilms.js';
+import { removePagination, setPaginationOnHome } from './pagination.js'
 const refs = getRefs();
 
 baseHome();
@@ -8,6 +9,7 @@ function onHomeClick() {
   clearContainer();
   baseHome();
   showFilms(1);
+  setPaginationOnHome('block');
   refs.myLibraryEl.classList.remove('header-nav__link--active');
   refs.formEl.classList.remove('visually-hidden');
   refs.headerContainer.classList.remove('header__container--library');
@@ -16,6 +18,7 @@ function onHomeClick() {
 
 function onMyLibraryClick() {
   clearContainer();
+  removePagination('none');
   refs.homeEl.classList.remove('header-nav__link--active');
   refs.myLibraryEl.classList.add('header-nav__link--active');
   refs.formEl.classList.add('visually-hidden');
