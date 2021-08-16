@@ -1,12 +1,13 @@
 import getRefs from './refs.js';
 import { showFilms } from './renderTrendingFilms.js';
-import { removePagination, setPaginationOnHome } from './pagination.js'
+import { removePagination, setPaginationOnHome } from './pagination.js';
+import { onWatchedClick } from './addFilmToLibrary.js';
+
 const refs = getRefs();
 
 baseHome();
 
 function onHomeClick() {
-  clearContainer();
   baseHome();
   showFilms(1);
   setPaginationOnHome('block');
@@ -14,10 +15,11 @@ function onHomeClick() {
   refs.formEl.classList.remove('visually-hidden');
   refs.headerContainer.classList.remove('header__container--library');
   refs.headerEl.classList.remove('header--library');
+  clearInput();
 }
 
 function onMyLibraryClick() {
-  clearContainer();
+  onWatchedClick();
   removePagination('none');
   refs.homeEl.classList.remove('header-nav__link--active');
   refs.myLibraryEl.classList.add('header-nav__link--active');
@@ -25,15 +27,21 @@ function onMyLibraryClick() {
   refs.headerLibraryEl.classList.remove('visually-hidden');
   refs.headerContainer.classList.add('header__container--library');
   refs.headerEl.classList.add('header--library');
+  clearInput();
 }
 
 function baseHome() {
+  clearContainer();
   refs.homeEl.classList.add('header-nav__link--active');
   refs.headerLibraryEl.classList.add('visually-hidden');
 }
 
 function clearContainer() {
   refs.container.innerHTML = '';
+}
+
+function clearInput() {
+  refs.headerInputEl.value = '';
 }
 
 refs.homeEl.addEventListener('click', onHomeClick);

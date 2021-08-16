@@ -102,4 +102,4 @@ function queueLocalStorage(id) {
   localStorage.setItem('Queue', JSON.stringify(movieIdStorageQueue));
 }
 
-export { watchedLocalStorage, queueLocalStorage };
+export { watchedLocalStorage, queueLocalStorage, onWatchedClick };
