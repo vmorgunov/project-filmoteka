@@ -1,6 +1,6 @@
 import renderPageTpl from '../templates/renderModalFilmPage.hbs';
 import FilmsApiService from './apiService.js';
-import getFilmKey from './trailer';
+import getTrailer from './trailerTab';
 import getRefs from './refs';
 import { watchedLocalStorage, queueLocalStorage } from './addFilmToLibrary';
 
@@ -25,8 +25,7 @@ function onOpenFilm(e) {
     const markup = renderPageTpl(data);
     refs.isFilmCard.innerHTML = markup;
 
-    const trailer = document.querySelector('#trailer');
-    getFilmKey(galleryCardId);
+    getTrailer(galleryCardId);
 
     refs.modal.classList.toggle('is-hidden');
 

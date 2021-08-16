@@ -54,7 +54,7 @@ export default class FilmsApiService {
         `${this.BASE_URL}movie/${movie_id}/videos?api_key=${this.API_KEY}&language=en-US`,
       );
       /*Returns key */
-      console.log(response.data.results[0].key);
+
       return response.data.results[0].key;
     } catch (error) {
       console.log(error);
