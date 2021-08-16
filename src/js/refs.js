@@ -7,6 +7,7 @@ export default function getRefs() {
     formEl: document.querySelector('.header__form'),
     headerLibraryEl: document.querySelector('.header__library'),
     headerContainer: document.querySelector('.header__container'),
+    headerInputEl: document.querySelector('.header__form-input'),
     headerEl: document.querySelector('.header'),
     modal: document.querySelector('.backdrop'),
     overlay: document.querySelector('.backdrop'),
