@@ -39,6 +39,7 @@ export default class FilmsApiService {
       return {
         ...response.data,
         popularity: response.data.popularity.toFixed(1),
+        title: response.data.title.toUpperCase(),
         original_title: response.data.original_title.toUpperCase(),
       }; /**Destructing og DATA in renderTrendingFilms.js */
     } catch (error) {

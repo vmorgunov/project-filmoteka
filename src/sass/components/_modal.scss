@@ -28,36 +28,41 @@ body.is-hidden {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-  visibility: visible;
+  visibility: hidden;
+  transition: $animation-dur $animation-type;
 }
 
 .backdrop.is-hidden.film-card {
-  transform: translate(-50%, -50%) scale(0.7);
+  @media screen and(min-width: $tablet) {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
 }
 
 .film-card {
   position: absolute;
   padding: 48px 20px 41px 20px;
-  top: 50%;
-  left: 50%;
-
+  // top: 0%;
+  // left: 0%;
+  max-width: 280px;
   padding: 48px 20px 41px 20px;
   border-radius: 4px;
   background-color: $bg-color;
 
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform $animation-dur $animation-type;
-
   @media screen and(min-width: $tablet) {
     padding: 42px 30px 40px 28px;
     display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity $animation-dur $animation-type, transform $animation-dur $animation-type;
+    max-width: 618px;
     // width: 348px;
     // height: 562px;
   }
 
   @media screen and(min-width: $desktop) {
     padding: 50px 30px 40px 30px;
-    width: 882px;
+    min-width: 882px;
     // height: 568px;
   }
 }
@@ -65,6 +70,7 @@ body.is-hidden {
 .film-card__img {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 30px;
 
   @media screen and(min-width: $tablet) {
@@ -94,6 +100,16 @@ body.is-hidden {
   @media screen and(min-width: $desktop) {
     min-width: 396px;
     height: 478px;
+  }
+}
+
+.film-card__container {
+  @media screen and(min-width: $tablet) {
+    max-width: 264px;
+  }
+
+  @media screen and(min-width: $desktop) {
+    min-width: 396px;
   }
 }
 
@@ -147,11 +163,9 @@ body.is-hidden {
   align-items: center;
 }
 
-.film-specification__genres {
-  &:not(:last-child)::after {
-    content: ',';
-    margin-right: 4px;
-  }
+#genre:not(:last-of-type):after {
+  content: ',';
+  margin-right: 4px;
 }
 
 .film-specification__vote--light {
@@ -260,6 +274,9 @@ body.is-hidden {
   border: none;
   background-color: #fff;
   border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  border-radius: 50%;
 
   transition: background-color $animation-dur $animation-type;
   &:hover,
@@ -270,8 +287,8 @@ body.is-hidden {
 
 .modal-icon {
   position: absolute;
-  top: -1px;
-  right: 1px;
+  top: -2px;
+  right: 0px;
   width: 30px;
   height: 30px;
 
@@ -281,4 +298,26 @@ body.is-hidden {
   &:focus {
     fill: $accent-color;
   }
+}
+
+#trailer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $grey-primary-color;
+
+  transition: color $animation-dur $animation-type;
+
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+.youimg {
+  margin-left: 5px;
+  height: 20px;
+}
+
+.film-specification__trailer {
+  align-items: center;
 }
