@@ -16,5 +16,9 @@ export default function getRefs() {
     logo: document.querySelector('.header__logo'),
     watchedBtn: document.querySelector('#watched-btn'),
     queueBtn: document.querySelector('#queue-btn'),
+    openModalBtn: document.querySelector('[data-modal-open]'),
+    closeModalBtn: document.querySelector('[data-modal-close]'),
+    devModal: document.querySelector('[data-modal]'),
+    lightBoxOverlay: document.querySelector('.lightbox__overlay'),
   };
 }

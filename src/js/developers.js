@@ -1,45 +1,42 @@
-const refs = {
-  openModalBtn: document.querySelector('[data-modal-open]'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('[data-modal]'),
-  lightBoxOverlay: document.querySelector('.lightbox__overlay'),
-};
+import getRefs from "./refs.js";
+
+const refs = getRefs();
 
 // Open Modal
 
-const onOpenModal = evt => {
+function onOpenModal(evt) {
   evt.preventDefault();
 
-  document.body.classList.add('modal-open');
-  refs.modal.classList.remove('is-hidden');
-  window.addEventListener('keydown', onEscKeyPress);
-};
+  document.body.classList.add("modal-open");
+  refs.devModal.classList.remove("is-hidden");
+  window.addEventListener("keydown", onEscKeyPress);
+}
 
 // Close Modal
 
-const onCloseModal = () => {
-  document.body.classList.remove('modal-open');
-  refs.modal.classList.add('is-hidden');
-  window.removeEventListener('keydown', onEscKeyPress);
-};
+function onCloseModal() {
+  document.body.classList.remove("modal-open");
+  refs.devModal.classList.add("is-hidden");
+  window.removeEventListener("keydown", onEscKeyPress);
+}
 
 // On Escape Press
 
-const onEscKeyPress = evt => {
-  const isEscKey = evt.code === 'Escape';
+function onEscKeyPress(evt) {
+  const isEscKey = evt.code === "Escape";
   if (isEscKey) {
     onCloseModal();
   }
-};
+}
 
 // On Overlay Click
 
-const onOverlayClick = evt => {
+function onOverlayClick(evt) {
   if (evt.currentTarget === evt.target) {
     onCloseModal();
   }
-};
+}
 
-refs.openModalBtn.addEventListener('click', onOpenModal);
-refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.lightBoxOverlay.addEventListener('click', onOverlayClick);
+refs.openModalBtn.addEventListener("click", onOpenModal);
+refs.closeModalBtn.addEventListener("click", onCloseModal);
+refs.lightBoxOverlay.addEventListener("click", onOverlayClick);
