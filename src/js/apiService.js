@@ -53,7 +53,7 @@ export default class FilmsApiService {
       const response = await axios.get(
         `${this.BASE_URL}movie/${movie_id}/videos?api_key=${this.API_KEY}&language=en-US`,
       );
-      /*Returns obj {about, image, vote, votes, popularity, title, genre(array), date } */
+      /*Returns key */
 
       return response.data.results[0].key;
     } catch (error) {

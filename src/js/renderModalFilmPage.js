@@ -1,5 +1,6 @@
 import renderPageTpl from '../templates/renderModalFilmPage.hbs';
 import FilmsApiService from './apiService.js';
+import getTrailer from './trailerTab';
 import getRefs from './refs';
 import { watchedLocalStorage, queueLocalStorage } from './addFilmToLibrary';
 
@@ -15,7 +16,6 @@ function onOpenFilm(e) {
   const galleryCard = e.target.parentNode;
   const galleryCardId = galleryCard.id;
   const isGalleryCard = galleryCard.classList.contains('gallery-card');
-  const filmUrl = films.fetchFilmsById(galleryCardId);
 
   films.fetchFilmsInfo(galleryCardId).then(data => {
     if (!isGalleryCard) {
@@ -25,8 +25,7 @@ function onOpenFilm(e) {
     const markup = renderPageTpl(data);
     refs.isFilmCard.innerHTML = markup;
 
-    const trailer = document.querySelector('#trailer');
-    trailer.setAttribute('href', `https://www.youtube.com/embed/${filmUrl}`);
+    getTrailer(galleryCardId);
 
     refs.modal.classList.toggle('is-hidden');
 
