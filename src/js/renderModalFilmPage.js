@@ -119,8 +119,6 @@ function onEscKeyPress(e) {
   if (e.code === ESC_KEY_CODE) {
     onCloseFilm();
   }
-}
-
 function clearModal() {
   refs.isFilmCard.innerHTML = '';
 }
