@@ -119,7 +119,6 @@ function onOpenFilm(e) {
 
   function onCloseFilm() {
     refs.modal.classList.toggle('is-hidden');
-    clearModal();
     window.removeEventListener('keydown', onEscKeyPress);
     refs.overlay.removeEventListener('click', onOverlayClick);
     refs.body.classList.remove('is-hidden');
@@ -136,9 +135,5 @@ function onOpenFilm(e) {
     if (e.code === ESC_KEY_CODE) {
       onCloseFilm();
     }
-  }
-
-  function clearModal() {
-    refs.isFilmCard.innerHTML = '';
   }
 }
