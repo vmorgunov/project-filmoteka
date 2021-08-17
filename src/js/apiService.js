@@ -20,6 +20,18 @@ export default class FilmsApiService {
     }
   }
 
+  /**Finction fetching 20 film per page, trending film for a day */
+  async fetchTrendingFilmsADay() {
+    try {
+      const response = await axios.get(
+        `${this.BASE_URL}trending/movie/day?api_key=${this.API_KEY}`,
+      );
+      return response.data; /**Destructing og DATA in renderTrendingFilms.js */
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   /*!!!-----Finction fetching 1 film by searchQuery. API can return more than one film (info for render) */
   async fetchSearchingFilms(searchQuery, page) {
     try {
@@ -36,11 +48,13 @@ export default class FilmsApiService {
   async fetchFilmsInfo(id) {
     try {
       const response = await axios.get(`${this.BASE_URL}/movie/${id}?api_key=${this.API_KEY}`);
+
       return {
         ...response.data,
         popularity: response.data.popularity.toFixed(1),
         title: response.data.title.toUpperCase(),
         original_title: response.data.original_title.toUpperCase(),
+        release_date: response.data.release_date.slice(0, 4),
       }; /**Destructing og DATA in renderTrendingFilms.js */
     } catch (error) {
       console.log(error);

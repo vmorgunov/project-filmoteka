@@ -24,6 +24,12 @@ function showFilms(page) {
     renderGenresHome(data.results);
   });
 }
+
+function renderFilmADay() {
+  films.fetchTrendingFilmsADay().then(data => {
+    renderGenresHome(data.results);
+  });
+}
 //Render films on Search
 function showFilmsOnSearch(searchQuery, page) {
   films.fetchSearchingFilms(searchQuery, page).then(data => {
@@ -63,4 +69,4 @@ function renderGenresHome(data) {
 
 window.onload = showFilms(1);
 
-export { showFilms, showFilmsOnSearch, renderGenresHome, renderFilms, getGenres };
+export { showFilms, showFilmsOnSearch, renderGenresHome, renderFilms, getGenres, renderFilmADay };

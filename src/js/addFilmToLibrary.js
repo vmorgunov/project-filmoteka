@@ -1,7 +1,7 @@
 import getRefs from './refs.js';
 import { clearContainer } from './header-library';
 import FilmsApiService from './apiService.js';
-import renderFilms from '../templates/renderTrendingFilms.hbs';
+import renderFilms from '../templates/renderFilmsForLibrary.hbs';
 
 const refs = getRefs();
 const films = new FilmsApiService();

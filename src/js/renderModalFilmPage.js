@@ -33,21 +33,18 @@ function onOpenFilm(e) {
     closeModalBtn.addEventListener('click', onCloseFilm);
 
     refs.body.classList.add('is-hidden');
-
     //--------------------------Функционал кнопок
     const addToWatchedBtn = document.querySelector('#addBtnWatched');
     const addToQueueBtn = document.querySelector('#addBtnQueue');
 
     addToWatchedBtn.addEventListener('click', onAddToWatchedClick);
     addToQueueBtn.addEventListener('click', onAddToQueueClick);
+
     //-------------Кнопка Watched
     let savedIdWatched = JSON.parse(localStorage.getItem('Watched'));
 
     if (savedIdWatched && savedIdWatched.movieIDWatched.includes(galleryCardId)) {
-      addToWatchedBtn.textContent = 'remove from watched';
-      addToWatchedBtn.style.backgroundColor = '#ff6b01';
-      addToWatchedBtn.style.color = '#ffffff';
-      addToWatchedBtn.style.borderColor = '#ff6b01';
+      removeFromWatched(addToWatchedBtn);
       addToWatchedBtn.addEventListener('click', onRemoveFromWatchedClick);
     }
 
@@ -59,20 +56,14 @@ function onOpenFilm(e) {
 
     function onAddToWatchedClick() {
       watchedLocalStorage(galleryCardId);
-      addToWatchedBtn.textContent = 'remove from watched';
-      addToWatchedBtn.style.backgroundColor = '#ff6b08';
-      addToWatchedBtn.style.color = '#fff';
-      addToWatchedBtn.style.borderColor = '#ff6b08';
+      removeFromWatched(addToWatchedBtn);
       addToWatchedBtn.removeEventListener('click', onAddToWatchedClick);
       addToWatchedBtn.addEventListener('click', onRemoveFromWatchedClick);
     }
 
     function onRemoveFromWatchedClick() {
       watchedLocalStorage(galleryCardId);
-      addToWatchedBtn.textContent = 'add to watched';
-      addToWatchedBtn.style.backgroundColor = '#fff';
-      addToWatchedBtn.style.color = '#000';
-      addToWatchedBtn.style.borderColor = '#000';
+      addToWatched(addToWatchedBtn);
       addToWatchedBtn.removeEventListener('click', onRemoveFromWatchedClick);
       addToWatchedBtn.addEventListener('click', onAddToWatchedClick);
     }
@@ -80,10 +71,7 @@ function onOpenFilm(e) {
     let savedIdQueue = JSON.parse(localStorage.getItem('Queue'));
 
     if (savedIdQueue && savedIdQueue.movieIDQueue.includes(galleryCardId)) {
-      addToQueueBtn.textContent = 'remove from queue';
-      addToQueueBtn.style.backgroundColor = '#ff6b08';
-      addToQueueBtn.style.color = '#fff';
-      addToQueueBtn.style.borderColor = '#ff6b08';
+      removeFromQueue(addToQueueBtn);
       addToQueueBtn.addEventListener('click', onRemoveFromQueueClick);
     }
 
@@ -95,20 +83,14 @@ function onOpenFilm(e) {
 
     function onAddToQueueClick() {
       queueLocalStorage(galleryCardId);
-      addToQueueBtn.textContent = 'remove from queue';
-      addToQueueBtn.style.backgroundColor = '#ff6b08';
-      addToQueueBtn.style.color = '#fff';
-      addToQueueBtn.style.borderColor = '#ff6b08';
+      removeFromQueue(addToQueueBtn);
       addToQueueBtn.removeEventListener('click', onAddToQueueClick);
       addToQueueBtn.addEventListener('click', onRemoveFromQueueClick);
     }
 
     function onRemoveFromQueueClick() {
       queueLocalStorage(galleryCardId);
-      addToQueueBtn.textContent = 'add to queue';
-      addToQueueBtn.style.backgroundColor = '#fff';
-      addToQueueBtn.style.color = '#000';
-      addToQueueBtn.style.borderColor = '#000';
+      addToQueue(addToQueueBtn);
       addToQueueBtn.removeEventListener('click', onRemoveFromQueueClick);
       addToQueueBtn.addEventListener('click', onAddToQueueClick);
     }
@@ -116,24 +98,53 @@ function onOpenFilm(e) {
 
   refs.overlay.addEventListener('click', onOverlayClick);
   window.addEventListener('keydown', onEscKeyPress);
+}
 
-  function onCloseFilm() {
-    refs.modal.classList.toggle('is-hidden');
-    window.removeEventListener('keydown', onEscKeyPress);
-    refs.overlay.removeEventListener('click', onOverlayClick);
-    refs.body.classList.remove('is-hidden');
-  }
+function onCloseFilm() {
+  refs.modal.classList.toggle('is-hidden');
+  clearModal();
+  window.removeEventListener('keydown', onEscKeyPress);
+  refs.overlay.removeEventListener('click', onOverlayClick);
+  refs.body.classList.remove('is-hidden');
+}
 
-  function onOverlayClick(e) {
-    if (e.currentTarget === e.target) {
-      onCloseFilm();
-    }
+function onOverlayClick(e) {
+  if (e.currentTarget === e.target) {
+    onCloseFilm();
   }
+}
 
-  function onEscKeyPress(e) {
-    const ESC_KEY_CODE = 'Escape';
-    if (e.code === ESC_KEY_CODE) {
-      onCloseFilm();
-    }
+function onEscKeyPress(e) {
+  const ESC_KEY_CODE = 'Escape';
+  if (e.code === ESC_KEY_CODE) {
+    onCloseFilm();
   }
+function clearModal() {
+  refs.isFilmCard.innerHTML = '';
+}
+function removeFromWatched(el) {
+  el.textContent = 'remove from watched';
+  el.style.backgroundColor = '#ff6b01';
+  el.style.color = '#ffffff';
+  el.style.borderColor = '#ff6b01';
+}
+
+function removeFromQueue(el) {
+  el.textContent = 'remove from queue';
+  el.style.backgroundColor = '#ff6b08';
+  el.style.color = '#fff';
+  el.style.borderColor = '#ff6b08';
+}
+
+function addToWatched(el) {
+  el.textContent = 'add to watched';
+  el.style.backgroundColor = '#fff';
+  el.style.color = '#000';
+  el.style.borderColor = '#000';
+}
+function addToQueue(el) {
+  el.textContent = 'add to queue';
+  el.style.backgroundColor = '#fff';
+  el.style.color = '#000';
+  el.style.borderColor = '#000';
 }

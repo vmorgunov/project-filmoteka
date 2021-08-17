@@ -20,6 +20,10 @@ export default function getRefs() {
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     devModal: document.querySelector('[data-modal]'),
+    lightBoxOverlay: document.querySelector('.lightbox__overlay'),
+    dayTrend: document.querySelector('#dayTrend'),
+    weekTrend: document.querySelector('#weekTrend'),
+    btnContainer: document.querySelector('.main-btncontainer'),
     backdropFtrEl: document.querySelector('.backdrop-developers'),
   };
 }
