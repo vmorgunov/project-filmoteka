@@ -1,7 +1,7 @@
 import getRefs from './refs.js';
-import { showFilms } from './renderTrendingFilms.js';
+import { showFilms } from './render-trending-films.js';
 import { removePagination, setPaginationOnHome } from './pagination.js';
-import { onWatchedClick } from './addFilmToLibrary.js';
+import { onWatchedClick } from './add-film-to-library.js';
 
 const refs = getRefs();
 

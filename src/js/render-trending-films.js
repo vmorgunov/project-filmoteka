@@ -1,7 +1,7 @@
-import renderFilmsTmp from '../templates/renderTrendingFilms.hbs';
-import allGenres from '../js/genres.json';
+import renderFilmsTmp from '../templates/render-trending-films.hbs';
+import allGenres from './genres.json';
 import { onInputError, findMessage } from './notifications.js';
-import FilmsApiService from './apiService';
+import FilmsApiService from './api-service';
 import getRefs from './refs.js';
 
 const films = new FilmsApiService();

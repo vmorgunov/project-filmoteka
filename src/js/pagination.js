@@ -1,26 +1,27 @@
-import FilmsApiService from './apiService';
+import FilmsApiService from './api-service';
 import getRefs from './refs.js';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { showFilms, showFilmsOnSearch, renderGenresHome, renderFilms } from './renderTrendingFilms.js'
-
-
+import {
+  showFilms,
+  showFilmsOnSearch,
+  renderGenresHome,
+  renderFilms,
+} from './render-trending-films.js';
 
 const refs = getRefs();
 
 refs.searchForm.addEventListener('submit', wordInput);
 refs.homeEl.addEventListener('click', clickHomeFilms);
 
-
-
 // PAGINATION ON TRENDING FILMS
 const container = document.getElementById('tui-pagination-container');
 const instance = new Pagination(container, {
-    totalItems: 10,
-    itemsPerPage: 10,
-    visiblePages: 5,
-    page: 1,
-    centerAlign: true,
+  totalItems: 10,
+  itemsPerPage: 10,
+  visiblePages: 5,
+  page: 1,
+  centerAlign: true,
 });
 
 const films = new FilmsApiService();
@@ -31,10 +32,10 @@ topFilmsRender();
 function topFilmsRender() {
   films.fetchTrendingFilms(page).then(data => {
     instance.reset(data.total_pages);
-  })
-  
-  instance.on('afterMove', (event) => {
-    const currentPage = event.page
+  });
+
+  instance.on('afterMove', event => {
+    const currentPage = event.page;
     films.fetchTrendingFilms(currentPage).then(data => {
       renderFilms(data.results);
       renderGenresHome(data.results);
@@ -67,10 +68,10 @@ function wordInput(e) {
   films.fetchSearchingFilms(searchQuery, pageSearch).then(data => {
     console.log(data);
     instanceSearch.reset(data.total_pages);
-  })
-  
-  instanceSearch.on('afterMove', (event) => {
-    const currentPage = event.page
+  });
+
+  instanceSearch.on('afterMove', event => {
+    const currentPage = event.page;
     films.fetchSearchingFilms(searchQuery, currentPage).then(data => {
       renderFilms(data.results);
       renderGenresHome(data.results);
@@ -94,5 +95,4 @@ function setPaginationOnSearch(markup) {
   containerSearch.style.display = markup;
 }
 
-
-export { removePagination, setPaginationOnHome }
+export { removePagination, setPaginationOnHome };

@@ -1,4 +1,4 @@
-import FilmsApiService from './apiService';
+import FilmsApiService from './api-service';
 const films = new FilmsApiService();
 
 export default function getTrailer(galleryCardId) {

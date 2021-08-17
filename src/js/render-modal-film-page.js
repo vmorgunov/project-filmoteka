@@ -1,8 +1,8 @@
-import renderPageTpl from '../templates/renderModalFilmPage.hbs';
-import FilmsApiService from './apiService.js';
-import getTrailer from './trailerTab';
+import renderPageTpl from '../templates/render-modal-film-page.hbs';
+import FilmsApiService from './api-service.js';
+import getTrailer from './trailer-tab';
 import getRefs from './refs';
-import { watchedLocalStorage, queueLocalStorage } from './addFilmToLibrary';
+import { watchedLocalStorage, queueLocalStorage } from './add-film-to-library';
 
 const films = new FilmsApiService();
 
@@ -119,6 +119,7 @@ function onEscKeyPress(e) {
   if (e.code === ESC_KEY_CODE) {
     onCloseFilm();
   }
+}
 function clearModal() {
   refs.isFilmCard.innerHTML = '';
 }

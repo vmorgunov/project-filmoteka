@@ -1,6 +1,6 @@
 import getRefs from './refs';
 // import FilmsApiService from './apiService';
-import { renderFilmADay, showFilms } from './renderTrendingFilms';
+import { renderFilmADay, showFilms } from './render-trending-films.js';
 
 const refs = getRefs();
 
