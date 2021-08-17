@@ -21,6 +21,7 @@ function onHomeClick() {
 function onMyLibraryClick() {
   onWatchedClick();
   removePagination('none');
+  refs.btnContainer.style.display = 'none';
   refs.homeEl.classList.remove('header-nav__link--active');
   refs.myLibraryEl.classList.add('header-nav__link--active');
   refs.formEl.classList.add('visually-hidden');
@@ -34,6 +35,7 @@ function baseHome() {
   clearContainer();
   refs.homeEl.classList.add('header-nav__link--active');
   refs.headerLibraryEl.classList.add('visually-hidden');
+  refs.btnContainer.style.display = 'flex';
 }
 
 function clearContainer() {

@@ -21,5 +21,8 @@ export default function getRefs() {
     closeModalBtn: document.querySelector('[data-modal-close]'),
     devModal: document.querySelector('[data-modal]'),
     lightBoxOverlay: document.querySelector('.lightbox__overlay'),
+    dayTrend: document.querySelector('#dayTrend'),
+    weekTrend: document.querySelector('#weekTrend'),
+    btnContainer: document.querySelector('.main-btncontainer'),
   };
 }

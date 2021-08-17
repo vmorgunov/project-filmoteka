@@ -5,4 +5,5 @@ import './js/back-to-top.js';
 import './js/developers.js';
 import './js/search-film.js';
 import './js/renderModalFilmPage';
-import './js/pagination.js'
+import './js/pagination.js';
+import './js/newBtn.js';

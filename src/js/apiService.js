@@ -20,6 +20,18 @@ export default class FilmsApiService {
     }
   }
 
+  /**Finction fetching 20 film per page, trending film for a day */
+  async fetchTrendingFilmsADay() {
+    try {
+      const response = await axios.get(
+        `${this.BASE_URL}trending/movie/day?api_key=${this.API_KEY}`,
+      );
+      return response.data; /**Destructing og DATA in renderTrendingFilms.js */
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   /*!!!-----Finction fetching 1 film by searchQuery. API can return more than one film (info for render) */
   async fetchSearchingFilms(searchQuery, page) {
     try {
