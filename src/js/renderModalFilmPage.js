@@ -23,7 +23,7 @@ function onOpenFilm(e) {
     }
 
     const markup = renderPageTpl(data);
-    refs.isFilmCard.insertAdjacentHTML('afterbegin', markup);
+    refs.isFilmCard.innerHTML = markup;
 
     getTrailer(galleryCardId);
 
