@@ -36,11 +36,13 @@ export default class FilmsApiService {
   async fetchFilmsInfo(id) {
     try {
       const response = await axios.get(`${this.BASE_URL}/movie/${id}?api_key=${this.API_KEY}`);
+
       return {
         ...response.data,
         popularity: response.data.popularity.toFixed(1),
         title: response.data.title.toUpperCase(),
         original_title: response.data.original_title.toUpperCase(),
+        release_date: response.data.release_date.slice(0, 4),
       }; /**Destructing og DATA in renderTrendingFilms.js */
     } catch (error) {
       console.log(error);
