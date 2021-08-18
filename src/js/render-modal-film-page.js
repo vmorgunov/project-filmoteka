@@ -103,7 +103,7 @@ function onOpenFilm(e) {
 
 function onCloseFilm() {
   refs.modal.classList.toggle('is-hidden');
-  clearModal();
+  // clearModal();
   window.removeEventListener('keydown', onEscKeyPress);
   refs.overlay.removeEventListener('click', onOverlayClick);
   refs.body.classList.remove('is-hidden');
