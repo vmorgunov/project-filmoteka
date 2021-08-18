@@ -1,7 +1,6 @@
 import FilmsApiService from './api-service';
 import getRefs from './refs.js';
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 import {
   showFilms,
   showFilmsOnSearch,
@@ -13,6 +12,7 @@ const refs = getRefs();
 
 refs.searchForm.addEventListener('submit', wordInput);
 refs.homeEl.addEventListener('click', clickHomeFilms);
+refs.logo.addEventListener('click', clickHomeFilms);
 
 // PAGINATION ON TRENDING FILMS
 const container = document.getElementById('tui-pagination-container');
@@ -95,4 +95,4 @@ function setPaginationOnSearch(markup) {
   containerSearch.style.display = markup;
 }
 
-export { removePagination, setPaginationOnHome };
+export { removePagination, setPaginationOnHome, setPaginationOnSearch };
