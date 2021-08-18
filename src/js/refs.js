@@ -27,6 +27,6 @@ export default function getRefs() {
     backdropFtrEl: document.querySelector('.backdrop-developers'),
     switchThemeBtn: document.getElementById('theme-switch-toggle'),
     footerEl: document.querySelector('.footer'),
-    filmSpecificationEL: document.querySelector('.film-specification__list'),
+    footerModalEl: document.querySelector('.modal'),
   };
 }

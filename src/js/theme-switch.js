@@ -19,15 +19,15 @@ function onSetTheme(theme) {
     refs.footerEl.classList.add(DARK);
     refs.isFilmCard.classList.remove(LIGHT);
     refs.isFilmCard.classList.add(DARK);
-    refs.filmSpecificationEL.classList.remove(LIGHT);
-    refs.filmSpecificationEL.classList.add(DARK);
+    refs.footerModalEl.classList.remove(LIGHT);
+    refs.footerModalEl.classList.add(DARK);
   } else {
     refs.footerEl.classList.remove(DARK);
     refs.footerEl.classList.add(LIGHT);
     refs.isFilmCard.classList.remove(DARK);
     refs.isFilmCard.classList.add(LIGHT);
-    refs.filmSpecificationEL.classList.remove(DARK);
-    refs.filmSpecificationEL.classList.add(LIGHT);
+    refs.footerModalEl.classList.remove(DARK);
+    refs.footerModalEl.classList.add(LIGHT);
   }
 }
 
