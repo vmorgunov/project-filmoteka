@@ -21,7 +21,7 @@
   }
 
   h2 {
-    color: $secondary-text-color;
+    color: currentColor;
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -101,7 +101,7 @@
 }
 
 .main-title {
-  color: #000000;
+  color: currentColor;
   font-style: normal;
   font-weight: 500;
   font-size: 26px;
@@ -132,6 +132,7 @@
 .main-btn button {
   min-width: 135px;
   padding: 5px 0;
+  color: currentColor;
   background-color: transparent;
   border: 2px solid $accent-color;
   transition: all $animation-dur cubic-bezier(0.17, 0.67, 0.83, 0.67);

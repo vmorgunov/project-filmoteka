@@ -6,6 +6,7 @@ $desktop: 1024px;
 // Common styles
 $header-gradient: rgba(0, 0, 0, 0.56);
 $bg-color: #fff;
+$bg-color-dark-theme: #333333;
 $primary-text-color: #fff;
 $secondary-text-color: #000;
 $accent-color: #ff6b08;
@@ -16,9 +17,11 @@ $attention-color: #ff001b;
 
 // Animation
 $animation-dur: 300ms;
+$theme-switch-dur: 150ms;
 $animation-type: cubic-bezier(0.4, 0, 0.2, 1);
+$theme-switch: cubic-bezier(0.4, 0, 0.2, 1);
 
 //Shadow
 $box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
   1px 4px 6px rgba(0, 0, 0, 0.16);
-$text-shadow: 5px 7px 8px rgba(0, 0, 0, 0.4);
+$text-shadow: 5px 7px 8px currentColor;
