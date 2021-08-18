@@ -2,7 +2,6 @@
   min-height: calc(100vh - 307px);
   padding-top: 20px;
   padding-bottom: 40px;
-
   @media screen and (min-width: $tablet) {
     padding-top: 30px;
     padding-bottom: 50px;
@@ -11,7 +10,6 @@
     padding-bottom: 46px;
   }
 }
-
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -19,7 +17,6 @@
     margin-top: -30px;
     margin-left: -30px;
   }
-
   h2 {
     color: currentColor;
     font-family: Roboto;
@@ -40,7 +37,6 @@
     color: $accent-color;
   }
 }
-
 .gallery-card {
   display: flex;
   flex-direction: column;
@@ -49,7 +45,6 @@
   width: 280px;
   border-radius: 5px;
   transition: all 250ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
-
   @media screen and (min-width: $tablet) {
     height: 444px;
     flex-basis: calc(100% / 2 - 30px);
@@ -61,7 +56,6 @@
     margin-left: 30px;
     margin-top: 30px;
   }
-
   &:hover {
     box-shadow: $box-shadow;
     transform: scale(1.05);
@@ -70,11 +64,9 @@
     }
   }
 }
-
 .gallery-card__info {
   padding: 9px 4px 6px 4px;
 }
-
 .gallery-img {
   cursor: pointer;
   height: 402px;
@@ -85,7 +77,6 @@
     height: 398px;
   }
 }
-
 .main-btncontainer {
   display: flex;
   flex-direction: column;
@@ -93,41 +84,37 @@
   justify-content: center;
   border-bottom: 2px solid $accent-color;
   margin-bottom: 20px;
-
   @media screen and (min-width: $tablet) {
     flex-direction: row;
     margin-bottom: 40px;
   }
 }
-
 .main-title {
+  display: inline;
   color: currentColor;
   font-style: normal;
   font-weight: 500;
   font-size: 26px;
   line-height: 1.16;
-  text-transform: uppercase;
   text-align: center;
+  text-transform: uppercase;
   text-shadow: $text-shadow;
-  width: 200px;
-  // margin-right: 20px;
-
   @media screen and (min-width: $tablet) {
-    margin-right: 35px;
     font-size: 30px;
   }
-
-  @media screen and (min-width: $desktop) {
-    margin-right: 140px;
-  }
 }
-
 .main-btn {
   display: flex;
   justify-content: center;
   border-radius: 5px;
   margin-top: 10px;
   margin-bottom: -2px;
+  @media screen and (min-width: $tablet) {
+    margin-left: 40px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-left: 140px;
+  }
 }
 .main-btn button {
   min-width: 135px;
@@ -137,13 +124,11 @@
   border: 2px solid $accent-color;
   transition: all $animation-dur cubic-bezier(0.17, 0.67, 0.83, 0.67);
   line-height: 1.46;
-
   @media screen and (min-width: $tablet) {
     font-size: 16px;
     min-width: 155px;
     height: 40px;
   }
-
   @media screen and (min-width: $tablet) {
     font-size: 16px;
     min-width: 155px;
