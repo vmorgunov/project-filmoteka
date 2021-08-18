@@ -18,13 +18,23 @@ html {
 body {
   font-family: Roboto, sans-serif;
   background-color: $bg-color;
-  color: $primary-text-color;
+  color: $secondary-text-color;
+  transition: color $theme-switch-dur $theme-switch,
+    background-color $theme-switch-dur $theme-switch;
+  &.light-theme {
+    background-color: $bg-color;
+    color: $secondary-text-color;
+  }
+  &.dark-theme {
+    background-color: $bg-color-dark-theme;
+    color: $primary-text-color;
+  }
 }
 
 img {
   display: block;
   // height: auto;
- max-width: 100%;
+  max-width: 100%;
 }
 
 ul,

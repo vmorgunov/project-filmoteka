@@ -12,6 +12,7 @@ body.modal-open {
   transition: opacity $animation-dur $animation-type;
   opacity: 1;
   overflow-y: scroll;
+  z-index: 3;
 }
 
 .backdrop-developers.is-hidden {
@@ -37,10 +38,17 @@ body.modal-open {
   height: 100%;
   padding: 20px 40px;
   overflow-y: auto;
-
+  color: $secondary-text-color;
   background-color: $bg-color;
   border-radius: 4px;
-
+  &.light-theme {
+    background-color: $bg-color;
+    color: $secondary-text-color;
+  }
+  &.dark-theme {
+    background-color: $bg-color-dark-theme;
+    color: $primary-text-color;
+  }
   @media screen and (min-width: 748px) {
     padding-left: 50px;
     padding-right: 50px;
@@ -65,9 +73,10 @@ body.modal-open {
   width: 30px;
   height: 30px;
   border: none;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: currentColor;
+  border: 1px solid currentColor;
 
   border-radius: 50%;
 
@@ -84,7 +93,6 @@ body.modal-open {
   right: 0px;
   width: 30px;
   height: 30px;
-
   transition: fill $animation-dur $animation-type;
 
   &:hover,
@@ -108,15 +116,15 @@ body.modal-open {
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 35px;
-  color: $secondary-text-color;
-  background-color: $primary-text-color;
+  color: currentColor;
+  background-color: transparent;
+  box-shadow: $box-shadow;
   @media screen and (min-width: $desktop) {
     font-weight: normal;
     font-size: 20px;
     line-height: 1.2;
     margin-bottom: 25px;
     padding-top: 0px;
-    padding-bottom: 0px;
   }
 }
 
@@ -143,9 +151,8 @@ body.modal-open {
   margin-top: 30px;
   padding-bottom: 20px;
   border-radius: 4px;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-  transition: all 250ms cubic-bezier(0.17, 0.67, 0.83, 0.67) 0s;
+  box-shadow: $box-shadow;
+  transition: all $animation-dur $animation-type;
 
   @media screen and (min-width: $tablet) {
     flex-basis: calc(100% / 2 - 30px);
@@ -164,10 +171,9 @@ body.modal-open {
 }
 
 .developers-gallery__item:hover {
-  @media screen and (min-width: $desktop) {
-    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%), 0px 4px 4px rgb(0 0 0 / 6%),
-      1px 4px 6px rgb(0 0 0 / 16%);
-    transform: scale(1.06);
+  transform: scale(1.06);
+  & .developers__link {
+    opacity: 1;
   }
 }
 
@@ -185,17 +191,17 @@ body.modal-open {
   align-items: center;
   text-align: center;
   letter-spacing: 0.06em;
-  color: $secondary-text-color;
-  background-color: $primary-text-color;
+  background-color: transparent;
+  opacity: 0;
   border: none;
   cursor: pointer;
-  transition: $animation-dur $animation-type;
+  transition: all $animation-dur $animation-type;
 }
 
 .developers__link--github {
-  color: $secondary-text-color;
+  color: currentColor;
   border: none;
-  transition: $animation-dur $animation-type;
+  transition: color $animation-dur $animation-type;
 }
 
 .developers__link--github:hover {
@@ -242,7 +248,7 @@ body.modal-open {
   font-size: 28px;
   line-height: 1.2;
   letter-spacing: 0.03em;
-  color: $secondary-text-color;
+  color: currentColor;
   text-align: center;
   margin-top: 10px;
 
@@ -254,10 +260,10 @@ body.modal-open {
 .developers__position {
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.2;
   letter-spacing: 0.03em;
-  color: $grey-primary-color;
+  color: currentColor;
   text-align: center;
   margin-top: 10px;
   @media screen and (min-width: $tablet) {
