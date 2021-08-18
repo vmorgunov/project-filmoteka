@@ -15,8 +15,14 @@ function onWatchedClick() {
   refs.watchedBtn.classList.add('active');
 
   let savedFilms = localStorage.getItem('Watched');
+
   if (savedFilms) {
     const parceFilms = JSON.parse(savedFilms);
+    if (parceFilms.movieIDWatched.length === 0) {
+      refs.bntTitle.innerHTML = 'Oops, you have not choose any film yet.';
+    } else {
+      refs.bntTitle.innerHTML = '';
+    }
 
     for (let i = 0; i < parceFilms.movieIDWatched.length; i += 1) {
       const id = parceFilms.movieIDWatched[i];
@@ -38,6 +44,11 @@ function onQueueClick() {
   let savedFilms = localStorage.getItem('Queue');
   if (savedFilms) {
     const parceFilms = JSON.parse(savedFilms);
+    if (parceFilms.movieIDQueue.length === 0) {
+      refs.bntTitle.innerHTML = 'Oops, you have not choose any film yet.';
+    } else {
+      refs.bntTitle.innerHTML = '';
+    }
 
     for (let i = 0; i < parceFilms.movieIDQueue.length; i += 1) {
       const id = parceFilms.movieIDQueue[i];

@@ -23,6 +23,7 @@ export default function getRefs() {
     lightBoxOverlay: document.querySelector('.lightbox__overlay'),
     dayTrend: document.querySelector('#dayTrend'),
     weekTrend: document.querySelector('#weekTrend'),
-    btnContainer: document.querySelector('.main-btncontainer'),
+    btnContainer: document.querySelector('.main-btn'),
+    bntTitle: document.querySelector('div > .main-title'),
   };
 }
