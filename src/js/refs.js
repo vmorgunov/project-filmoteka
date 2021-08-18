@@ -25,5 +25,7 @@ export default function getRefs() {
     weekTrend: document.querySelector('#weekTrend'),
     btnContainer: document.querySelector('.main-btncontainer'),
     backdropFtrEl: document.querySelector('.backdrop-developers'),
+    btnContainer: document.querySelector('.main-btn'),
+    bntTitle: document.querySelector('div > .main-title'),
   };
 }

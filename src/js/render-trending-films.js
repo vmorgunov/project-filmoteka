@@ -33,12 +33,12 @@ function renderFilmADay() {
 //Render films on Search
 function showFilmsOnSearch(searchQuery, page) {
   films.fetchSearchingFilms(searchQuery, page).then(data => {
-    if (data.length === 0) {
+    if (data.results.length === 0) {
       onInputError();
     }
-    if (data.length > 0) {
+    if (data.results.length > 0) {
       refs.container.innerHTML = '';
-      findMessage(data.length);
+      findMessage(data.results.length);
     }
     renderGenresHome(data.results);
   });
