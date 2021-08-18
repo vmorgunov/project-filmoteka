@@ -1,7 +1,7 @@
 import getRefs from './refs.js';
-import { showFilms } from './renderTrendingFilms.js';
-import { removePagination, setPaginationOnHome } from './pagination.js';
-import { onWatchedClick } from './addFilmToLibrary.js';
+import { showFilms } from './render-trending-films.js';
+import { removePagination, setPaginationOnHome, setPaginationOnSearch } from './pagination.js';
+import { onWatchedClick } from './add-film-to-library.js';
 
 const refs = getRefs();
 
@@ -11,6 +11,7 @@ function onHomeClick() {
   baseHome();
   showFilms(1);
   setPaginationOnHome('block');
+  setPaginationOnSearch('none');
   refs.myLibraryEl.classList.remove('header-nav__link--active');
   refs.formEl.classList.remove('visually-hidden');
   refs.headerContainer.classList.remove('header__container--library');
@@ -33,6 +34,8 @@ function onMyLibraryClick() {
 
 function baseHome() {
   clearContainer();
+
+  refs.bntTitle.innerHTML = "What's new?";
   refs.homeEl.classList.add('header-nav__link--active');
   refs.headerLibraryEl.classList.add('visually-hidden');
   refs.btnContainer.style.display = 'flex';

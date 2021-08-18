@@ -4,7 +4,7 @@ body.is-hidden {
 
 .backdrop {
   position: fixed;
-  padding: 20px;
+  padding: 20px 20px 20px 20px;
   background-color: $header-gradient;
   top: 0;
   left: 0;
@@ -32,29 +32,27 @@ body.is-hidden {
   transition: $animation-dur $animation-type;
 }
 
-.backdrop.is-hidden.film-card {
+.backdrop.is-hidden .film-card {
   @media screen and(min-width: $tablet) {
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.7);
   }
 }
 
 .film-card {
-  position: absolute;
+  position: relative;
   padding: 48px 20px 41px 20px;
-  // top: 0%;
-  // left: 0%;
-  max-width: 280px;
-  padding: 48px 20px 41px 20px;
+  min-width: 280px;
   border-radius: 4px;
   background-color: $bg-color;
 
   @media screen and(min-width: $tablet) {
+    position: absolute;
     padding: 42px 30px 40px 28px;
     display: flex;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
     transition: opacity $animation-dur $animation-type, transform $animation-dur $animation-type;
+    transform: translate(-50%, -50%) scale(1);
     max-width: 618px;
     // width: 348px;
     // height: 562px;
@@ -163,9 +161,19 @@ body.is-hidden {
   align-items: center;
 }
 
+#genres {
+  display: block;
+
+  @media screen and(min-width: $desktop) {
+    display: flex;
+  }
+}
+
 #genre:not(:last-of-type):after {
-  content: ',';
-  margin-right: 4px;
+  @media screen and(min-width: $desktop) {
+    content: ',';
+    margin-right: 4px;
+  }
 }
 
 .film-specification__vote--light {
@@ -225,6 +233,7 @@ body.is-hidden {
   border: 1px solid $secondary-text-color;
 
   transition: all $animation-dur $animation-type;
+  background-color: transparent;
 
   @media screen and(min-width: $tablet) {
     width: 125px;
@@ -310,6 +319,15 @@ body.is-hidden {
 
   &:hover {
     color: $accent-color;
+  }
+
+  & p {
+    max-width: 55px;
+    text-align: center;
+
+    @media screen and(min-width: $tablet) {
+      max-width: 100%;
+    }
   }
 }
 

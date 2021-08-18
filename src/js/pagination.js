@@ -1,4 +1,4 @@
-import FilmsApiService from './apiService';
+import FilmsApiService from './api-service';
 import getRefs from './refs.js';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
@@ -7,7 +7,7 @@ import {
   showFilmsOnSearch,
   renderGenresHome,
   renderFilms,
-} from './renderTrendingFilms.js';
+} from './render-trending-films.js';
 
 const refs = getRefs();
 

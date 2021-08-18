@@ -4,7 +4,7 @@
   padding-bottom: 40px;
 
   @media screen and (min-width: $tablet) {
-    padding-top: 60px;
+    padding-top: 30px;
     padding-bottom: 50px;
   }
   @media screen and (min-width: $desktop) {
@@ -63,8 +63,7 @@
   }
 
   &:hover {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-      1px 4px 6px rgba(0, 0, 0, 0.16);
+    box-shadow: $box-shadow;
     transform: scale(1.05);
     @media screen and (min-width: $tablet) {
       transform: scale(1.06);
@@ -84,5 +83,82 @@
   border-radius: 5px;
   @media screen and (min-width: $tablet) {
     height: 398px;
+  }
+}
+
+.main-btncontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid $accent-color;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    margin-bottom: 40px;
+  }
+}
+
+.main-title {
+  color: #000000;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.16;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: $text-shadow;
+  width: 200px;
+  // margin-right: 20px;
+
+  @media screen and (min-width: $tablet) {
+    margin-right: 35px;
+    font-size: 30px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 140px;
+  }
+}
+
+.main-btn {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: -2px;
+}
+.main-btn button {
+  min-width: 135px;
+  padding: 5px 0;
+  background-color: transparent;
+  border: 2px solid $accent-color;
+  transition: all $animation-dur cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  line-height: 1.46;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+    min-width: 155px;
+    height: 40px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+    min-width: 155px;
+    height: 40px;
+  }
+  &:first-child {
+    border-top-left-radius: 5px;
+    margin-right: -2px;
+  }
+  &:last-child {
+    border-top-right-radius: 5px;
+    // padding: 0;
+  }
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $primary-text-color;
   }
 }

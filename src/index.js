@@ -1,9 +1,9 @@
 import './sass/main.scss';
 import './js/header-library.js';
-import './js/renderTrendingFilms.js';
+import './js/render-trending-films.js';
 import './js/back-to-top.js';
 import './js/developers.js';
 import './js/search-film.js';
-import './js/renderModalFilmPage';
+import './js/render-modal-film-page.js';
 import './js/pagination.js';
-import './js/newBtn.js';
+import './js/new-btn.js';

@@ -1,4 +1,4 @@
-import getRefs from "./refs.js";
+import getRefs from './refs.js';
 
 const refs = getRefs();
 
@@ -7,23 +7,23 @@ const refs = getRefs();
 function onOpenModal(evt) {
   evt.preventDefault();
 
-  document.body.classList.add("modal-open");
-  refs.devModal.classList.remove("is-hidden");
-  window.addEventListener("keydown", onEscKeyPress);
+  document.body.classList.add('modal-open');
+  refs.devModal.classList.remove('is-hidden');
+  window.addEventListener('keydown', onEscKeyPress);
 }
 
 // Close Modal
 
 function onCloseModal() {
-  document.body.classList.remove("modal-open");
-  refs.devModal.classList.add("is-hidden");
-  window.removeEventListener("keydown", onEscKeyPress);
+  document.body.classList.remove('modal-open');
+  refs.devModal.classList.add('is-hidden');
+  window.removeEventListener('keydown', onEscKeyPress);
 }
 
 // On Escape Press
 
 function onEscKeyPress(evt) {
-  const isEscKey = evt.code === "Escape";
+  const isEscKey = evt.code === 'Escape';
   if (isEscKey) {
     onCloseModal();
   }
@@ -37,6 +37,6 @@ function onOverlayClick(evt) {
   }
 }
 
-refs.openModalBtn.addEventListener("click", onOpenModal);
-refs.closeModalBtn.addEventListener("click", onCloseModal);
-refs.lightBoxOverlay.addEventListener("click", onOverlayClick);
+refs.openModalBtn.addEventListener('click', onOpenModal);
+refs.closeModalBtn.addEventListener('click', onCloseModal);
+refs.backdropFtrEl.addEventListener('click', onOverlayClick);

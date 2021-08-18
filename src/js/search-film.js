@@ -1,6 +1,6 @@
-import FilmsApiService from './apiService';
+import FilmsApiService from './api-service';
 import getRefs from './refs.js';
-import { showFilmsOnSearch } from './renderTrendingFilms.js';
+import { showFilmsOnSearch } from "./render-trending-films.js"
 
 const filmsApiService = new FilmsApiService();
 const refs = getRefs();
