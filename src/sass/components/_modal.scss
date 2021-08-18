@@ -10,7 +10,7 @@ body.is-hidden {
   left: 0;
   width: 100%;
   height: 100%;
-
+  z-index: 3;
   opacity: 1;
   transition: opacity $animation-dur $animation-type;
 
@@ -43,6 +43,8 @@ body.is-hidden {
   padding: 48px 20px 41px 20px;
   min-width: 280px;
   border-radius: 4px;
+
+  color: $secondary-text-color;
   background-color: $bg-color;
 
   @media screen and(min-width: $tablet) {
@@ -57,11 +59,18 @@ body.is-hidden {
     // width: 348px;
     // height: 562px;
   }
-
   @media screen and(min-width: $desktop) {
     padding: 50px 30px 40px 30px;
     min-width: 882px;
     // height: 568px;
+  }
+  &.light-theme {
+    background-color: $bg-color;
+    color: $secondary-text-color;
+  }
+  &.dark-theme {
+    background-color: $bg-color-dark-theme;
+    color: $primary-text-color;
   }
 }
 
@@ -116,7 +125,7 @@ body.is-hidden {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  color: $secondary-text-color;
+  color: currentColor;
 }
 
 .film-card__title {
@@ -124,7 +133,7 @@ body.is-hidden {
   font-weight: 500;
   font-size: 20px;
   line-height: 1.15;
-  color: $secondary-text-color;
+  color: currentColor;
   margin-bottom: 20px;
 
   @media screen and(min-width: $desktop) {
@@ -156,7 +165,7 @@ body.is-hidden {
 
 .film-specification__value {
   display: flex;
-  color: $secondary-text-color;
+  color: currentColor;
   justify-content: center;
   align-items: center;
 }
@@ -172,6 +181,7 @@ body.is-hidden {
 #genre:not(:last-of-type):after {
   @media screen and(min-width: $desktop) {
     content: ',';
+    color: currentColor;
     margin-right: 4px;
   }
 }
@@ -230,9 +240,10 @@ body.is-hidden {
   justify-content: center;
   text-transform: uppercase;
   border-radius: 5px;
-  border: 1px solid $secondary-text-color;
+  border: 1px solid currentColor;
 
   transition: all $animation-dur $animation-type;
+  color: currentColor;
   background-color: transparent;
 
   @media screen and(min-width: $tablet) {
@@ -245,7 +256,7 @@ body.is-hidden {
 
   &:hover,
   &:focus {
-    color: $primary-text-color;
+    color: currentColor;
     background-color: $accent-color;
     border: 1px solid $accent-color;
   }
@@ -281,9 +292,10 @@ body.is-hidden {
   width: 30px;
   height: 30px;
   border: none;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: currentColor;
+  border: 1px solid currentColor;
 
   border-radius: 50%;
 
@@ -300,7 +312,6 @@ body.is-hidden {
   right: 0px;
   width: 30px;
   height: 30px;
-
   transition: fill $animation-dur $animation-type;
 
   &:hover,
@@ -313,7 +324,7 @@ body.is-hidden {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $grey-primary-color;
+  color: currentColor;
 
   transition: color $animation-dur $animation-type;
 

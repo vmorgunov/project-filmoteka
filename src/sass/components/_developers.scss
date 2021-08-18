@@ -12,6 +12,7 @@ body.modal-open {
   transition: opacity $animation-dur $animation-type;
   opacity: 1;
   overflow-y: scroll;
+  z-index: 3;
 }
 
 .backdrop-developers.is-hidden {

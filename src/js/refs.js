@@ -25,5 +25,8 @@ export default function getRefs() {
     weekTrend: document.querySelector('#weekTrend'),
     btnContainer: document.querySelector('.main-btncontainer'),
     backdropFtrEl: document.querySelector('.backdrop-developers'),
+    switchThemeBtn: document.getElementById('theme-switch-toggle'),
+    footerEl: document.querySelector('.footer'),
+    filmSpecificationEL: document.querySelector('.film-specification__list'),
   };
 }

@@ -139,13 +139,13 @@ function removeFromQueue(el) {
 
 function addToWatched(el) {
   el.textContent = 'add to watched';
-  el.style.backgroundColor = '#fff';
-  el.style.color = '#000';
-  el.style.borderColor = '#000';
+  el.style.backgroundColor = 'transparent';
+  el.style.color = 'currentColor';
+  el.style.borderColor = 'currentColor';
 }
 function addToQueue(el) {
   el.textContent = 'add to queue';
-  el.style.backgroundColor = '#fff';
-  el.style.color = '#000';
-  el.style.borderColor = '#000';
+  el.style.backgroundColor = 'transparent';
+  el.style.color = 'currentColor';
+  el.style.borderColor = 'currentColor';
 }
