@@ -28,5 +28,7 @@ export default function getRefs() {
     switchThemeBtn: document.getElementById('theme-switch-toggle'),
     footerEl: document.querySelector('.footer'),
     footerModalEl: document.querySelector('.modal'),
+    btnContainer: document.querySelector('.main-btn'),
+    bntTitle: document.querySelector('div > .main-title'),
   };
 }

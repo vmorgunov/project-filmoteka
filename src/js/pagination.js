@@ -66,7 +66,6 @@ function wordInput(e) {
   setPaginationOnSearch('block');
   const searchQuery = e.currentTarget.elements.searchQuery.value.trim();
   films.fetchSearchingFilms(searchQuery, pageSearch).then(data => {
-    console.log(data);
     instanceSearch.reset(data.total_pages);
   });
 

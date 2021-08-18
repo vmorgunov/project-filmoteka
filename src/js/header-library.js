@@ -34,6 +34,8 @@ function onMyLibraryClick() {
 
 function baseHome() {
   clearContainer();
+
+  refs.bntTitle.innerHTML = "What's new?";
   refs.homeEl.classList.add('header-nav__link--active');
   refs.headerLibraryEl.classList.add('visually-hidden');
   refs.btnContainer.style.display = 'flex';
