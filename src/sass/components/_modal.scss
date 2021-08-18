@@ -233,6 +233,7 @@ body.is-hidden {
   border: 1px solid $secondary-text-color;
 
   transition: all $animation-dur $animation-type;
+  background-color: transparent;
 
   @media screen and(min-width: $tablet) {
     width: 125px;
