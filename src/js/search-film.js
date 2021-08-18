@@ -1,6 +1,6 @@
 import FilmsApiService from './api-service';
 import getRefs from './refs.js';
-import { showFilmsOnSearch } from "./render-trending-films.js"
+import { showFilmsOnSearch } from './render-trending-films.js';
 
 const filmsApiService = new FilmsApiService();
 const refs = getRefs();
@@ -19,6 +19,7 @@ async function onSearch(e) {
 
   try {
     await showFilmsOnSearch(searchQuery);
+    refs.headerInputEl.value = '';
   } catch (error) {
     console.log(error);
   }
