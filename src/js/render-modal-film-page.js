@@ -57,6 +57,7 @@ function onOpenFilm(e) {
     function onAddToWatchedClick() {
       watchedLocalStorage(galleryCardId);
       removeFromWatched(addToWatchedBtn);
+
       addToWatchedBtn.removeEventListener('click', onAddToWatchedClick);
       addToWatchedBtn.addEventListener('click', onRemoveFromWatchedClick);
     }
