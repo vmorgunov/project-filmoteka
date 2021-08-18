@@ -111,4 +111,4 @@ var o;function t(o){return(t="function"==typeof Symbol&&"symbol"==typeof Symbol.
 },{"./refs.js":"VyiV"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/header-library.js"),require("./js/render-trending-films.js"),require("./js/back-to-top.js"),require("./js/developers.js"),require("./js/search-film.js"),require("./js/render-modal-film-page.js"),require("./js/pagination.js"),require("./js/new-btn.js"),require("./js/theme-switch.js");
 },{"./sass/main.scss":"clu1","./js/header-library.js":"XgnG","./js/render-trending-films.js":"UW1B","./js/back-to-top.js":"EZ65","./js/developers.js":"pbg0","./js/search-film.js":"abVP","./js/render-modal-film-page.js":"PcFi","./js/pagination.js":"o8lo","./js/new-btn.js":"PFB1","./js/theme-switch.js":"JIhF"}]},{},["Focm"], null)
-//# sourceMappingURL=/project-filmoteka/src.b7ed2e3e.js.map
+//# sourceMappingURL=/project-filmoteka/src.fc3f3437.js.map
